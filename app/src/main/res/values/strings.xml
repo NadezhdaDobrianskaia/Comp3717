@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Comp3717</string>
+    <string name="app_name">3717</string>
     <string name="hello_world">D'arcy!!</string>
     <string name="action_settings">Settings</string>
     <string name="CoolFaceButton">coolFace</string>
