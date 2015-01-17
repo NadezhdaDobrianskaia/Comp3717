@@ -11,5 +11,6 @@
     <string name="priorityItems">Priority Items</string>
     <string name="title_activity_add_course_screen">addCourseScreen</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_charts_screen">chartsScreen</string>
 
 </resources>
