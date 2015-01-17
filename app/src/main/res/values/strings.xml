@@ -2,12 +2,14 @@
 <resources>
 
     <string name="app_name">3717</string>
-    <string name="hello_world">Hello World!</string>
+    <string name="markulator">Markulator</string>
     <string name="action_settings">Settings</string>
     <string name="CoolFaceButton">coolFace</string>
     <string name="addCourse">Add Course</string>
     <string name="charts">Charts</string>
     <string name="viewDetails">View Details</string>
     <string name="priorityItems">Priority Items</string>
+    <string name="title_activity_add_course_screen">addCourseScreen</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
