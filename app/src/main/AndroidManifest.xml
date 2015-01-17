@@ -32,6 +32,14 @@
             android:name=".viewDetailsScreen"
             android:label="@string/title_activity_view_details_screen" >
         </activity>
+        <activity
+            android:name=".addActivity"
+            android:label="@string/title_activity_add"
+            android:parentActivityName=".addCourseScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marculator.comp3717.addCourseScreen" />
+        </activity>
     </application>
 
 </manifest>

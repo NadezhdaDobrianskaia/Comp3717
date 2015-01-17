@@ -15,4 +15,9 @@
     <string name="title_activity_priority_items_screen">priorityItemsScreen</string>
     <string name="title_activity_view_details_screen">viewDetailsScreen</string>
 
+    //activity_add_sourse_screen layout
+    <string name="edit_message">Enter the course to add</string>
+    <string name="button_add">ADD</string>
+    <string name="title_activity_add">addActivity</string>
+
 </resources>
