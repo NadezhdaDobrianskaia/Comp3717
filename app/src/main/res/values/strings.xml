@@ -12,5 +12,7 @@
     <string name="title_activity_add_course_screen">addCourseScreen</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_charts_screen">chartsScreen</string>
+    <string name="title_activity_priority_items_screen">priorityItemsScreen</string>
+    <string name="title_activity_view_details_screen">viewDetailsScreen</string>
 
 </resources>

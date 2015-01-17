@@ -24,6 +24,14 @@
             android:name=".chartsScreen"
             android:label="@string/title_activity_charts_screen" >
         </activity>
+        <activity
+            android:name=".priorityItemsScreen"
+            android:label="@string/title_activity_priority_items_screen" >
+        </activity>
+        <activity
+            android:name=".viewDetailsScreen"
+            android:label="@string/title_activity_view_details_screen" >
+        </activity>
     </application>
 
 </manifest>
