@@ -20,6 +20,10 @@
             android:name=".addCourseScreen"
             android:label="@string/title_activity_add_course_screen" >
         </activity>
+        <activity
+            android:name=".chartsScreen"
+            android:label="@string/title_activity_charts_screen" >
+        </activity>
     </application>
 
 </manifest>
