@@ -16,6 +16,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".addCourseScreen"
+            android:label="@string/title_activity_add_course_screen" >
+        </activity>
+        <activity
+            android:name=".chartsScreen"
+            android:label="@string/title_activity_charts_screen" >
+        </activity>
+        <activity
+            android:name=".priorityItemsScreen"
+            android:label="@string/title_activity_priority_items_screen" >
+        </activity>
+        <activity
+            android:name=".viewDetailsScreen"
+            android:label="@string/title_activity_view_details_screen" >
+        </activity>
+        <activity
+            android:name=".addActivity"
+            android:label="@string/title_activity_add"
+            android:parentActivityName=".addCourseScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marculator.comp3717.addCourseScreen" />
+        </activity>
     </application>
 
 </manifest>
