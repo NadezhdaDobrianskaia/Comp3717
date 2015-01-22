@@ -15,9 +15,16 @@
     <string name="title_activity_priority_items_screen">priorityItemsScreen</string>
     <string name="title_activity_view_details_screen">viewDetailsScreen</string>
 
-    //activity_add_sourse_screen layout
-    <string name="edit_message">Enter the course to add</string>
-    <string name="button_add">ADD</string>
+    //activity_add_course_screen layout
+    <string name="edit_course">Enter the course to add</string>
+    <string name="title_course_add">addCourse</string>
+    <string name="button_add_course">ADD</string>
+
+    //activity_add_activity
+    <string name="edit_activity_name">Enter the activity to add</string>
+    <string name="edit_weight">Enter the weight of the activity</string>
+    <string name="edit_dueDate">Enter the due date</string>
     <string name="title_activity_add">addActivity</string>
+    <string name="button_add_activity">ADD</string>
 
 </resources>
