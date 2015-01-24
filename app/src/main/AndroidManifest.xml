@@ -7,31 +7,48 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- this is the main page activity-->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--Add Course Screen this is where the user can choose
+         to add a course with related fields for marcks calculations-->
         <activity
             android:name=".addCourseScreen"
             android:label="@string/title_activity_add_course_screen" >
         </activity>
+
+        <!--Chart Screen this is where the user can a chart
+        of his or her marks-->
         <activity
             android:name=".chartsScreen"
             android:label="@string/title_activity_charts_screen" >
         </activity>
+
+        <!--Priority Screen where the user can view
+        priorities to study for.  this activity is currently not connected
+        to the home page-->
         <activity
             android:name=".priorityItemsScreen"
             android:label="@string/title_activity_priority_items_screen" >
         </activity>
+
+        <!--View Details Screen where the user can view
+        details of their marks.  this activity is currently not connected
+        to the home page-->
         <activity
             android:name=".viewDetailsScreen"
             android:label="@string/title_activity_view_details_screen" >
         </activity>
+
+
         <activity
             android:name=".addActivity"
             android:label="@string/title_activity_add"
@@ -40,6 +57,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.marculator.comp3717.addCourseScreen" />
         </activity>
+
+
     </application>
 
 </manifest>
