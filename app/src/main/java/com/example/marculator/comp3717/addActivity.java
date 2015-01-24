@@ -1,12 +1,17 @@
 package com.example.marculator.comp3717;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 
 public class addActivity extends ActionBarActivity {
+
+    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.addCourseScreen";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +40,14 @@ public class addActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Called when the user clicks the add button for add activity screen
+    public void sendMessage(View view){
+        Intent intent = new Intent(this,addCourseScreen.class);
+        EditText editText = (EditText)findViewById(R.id.edit_activity);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }

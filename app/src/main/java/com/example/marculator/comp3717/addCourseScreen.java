@@ -45,7 +45,7 @@ public class addCourseScreen extends ActionBarActivity {
     //Called when the user clicks the add button for add course screen
     public void sendMessage(View view){
         Intent intent = new Intent(this,addActivity.class);
-        EditText editText = (EditText)findViewById(R.id.edit_message);
+        EditText editText = (EditText)findViewById(R.id.edit_course);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
