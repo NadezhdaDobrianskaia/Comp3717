@@ -17,10 +17,10 @@
 
     <!--add Course button-->
     <Button
+        android:id="@+id/buttonHomeAddCourse"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/addCourse"
-        android:id="@+id/button"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -30,34 +30,37 @@
 
     <!--charts button-->
     <Button
+        android:id="@+id/buttonHomeCharts"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/charts"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
+        android:layout_alignTop="@+id/buttonHomeAddCourse"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="chartsScreen" />
 
     <!--view details button-->
     <Button
+        android:id="@+id/buttonHomeViewDetails"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/viewDetails"
-        android:id="@+id/button3"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="63dp" />
+        android:layout_marginTop="63dp"
+        android:onClick="viewDetailsScreen"/>
 
-    <!--priority itom button-->
+
+    <!-- priority item button-->
     <Button
+        android:id="@+id/buttonHomePriorityList"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/priorityItems"
-        android:id="@+id/button4"
-        android:layout_alignTop="@+id/button3"
+        android:layout_alignTop="@+id/buttonHomeViewDetails"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="priorityItemsScreen"/>
 
 </RelativeLayout>
