@@ -16,7 +16,7 @@ public class addCourseDetails extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_activity);
+        setContentView(R.layout.activity_add_course_details);
     }
 
 
@@ -43,7 +43,7 @@ public class addCourseDetails extends ActionBarActivity {
     }
 
     //Called when the user clicks the add button for add activity screen
-    public void sendMessage(View view){
+    public void backToCourseScreen(View view){
         Intent intent = new Intent(this,addCourseScreen.class);
         EditText editText = (EditText)findViewById(R.id.edit_activity);
         String message = editText.getText().toString();
