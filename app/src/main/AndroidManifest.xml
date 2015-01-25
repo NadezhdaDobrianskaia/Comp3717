@@ -50,7 +50,7 @@
 
 
         <activity
-            android:name=".addActivity"
+            android:name=".addCourseDetails"
             android:label="@string/title_activity_add"
             android:parentActivityName=".addCourseScreen" >
             <meta-data

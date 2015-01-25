@@ -15,6 +15,7 @@
         android:layout_marginBottom="32dp"
         android:layout_centerVertical="true" />
 
+    <!--add Course button-->
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -27,6 +28,7 @@
         android:clickable="true"
         android:onClick="addCourseScreenButton" />
 
+    <!--charts button-->
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -37,6 +39,7 @@
         android:layout_alignParentEnd="true"
         android:onClick="chartsScreen" />
 
+    <!--view details button-->
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -47,6 +50,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="63dp" />
 
+    <!--priority itom button-->
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"

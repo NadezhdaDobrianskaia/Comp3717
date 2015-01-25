@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class addCourseScreen extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.addActivity";
+    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.addCourseDetails";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +43,12 @@ public class addCourseScreen extends ActionBarActivity {
     }
 
     //Called when the user clicks the add button for add course screen
-    public void sendMessage(View view){
-        Intent intent = new Intent(this,addActivity.class);
-        EditText editText = (EditText)findViewById(R.id.edit_course);
+    public void addCourseDetails(View view){
+        Intent intent = new Intent(this,addCourseDetails.class);
+        EditText editText = (EditText)findViewById(R.id.edit_course_box);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
-
 
 }

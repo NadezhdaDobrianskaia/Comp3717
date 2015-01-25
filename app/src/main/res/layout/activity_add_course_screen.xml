@@ -3,19 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
-    tools:context="com.example.marculator.comp3717.addActivity">
+    tools:context="com.example.marculator.comp3717.addCourseDetails">
 
+    <!--EditText box for entering the course-->
     <EditText
-        android:id="@+id/edit_course"
+        android:id="@+id/edit_course_box"
         android:layout_weight="1"
         android:layout_width = "0dp"
         android:layout_height="wrap_content"
         android:hint="@string/edit_course"/>
+
+
+    <!--add button to add a course-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_add_course"
-        android:onClick="sendMessage"/>
+        android:onClick="addCourseDetails"/>
 
 
 </LinearLayout>

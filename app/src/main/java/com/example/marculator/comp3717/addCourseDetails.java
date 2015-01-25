@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 
-public class addActivity extends ActionBarActivity {
+public class addCourseDetails extends ActionBarActivity {
 
     public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.addCourseScreen";
 
