@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/edit_dueDate"
         android:layout_weight="1"
-        android:layout_width = "0dp"
+        android:layout_width = "match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edit_dueDate"/>
 
@@ -29,5 +29,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_add_activity"
         android:onClick="backToCourseScreen"/>
+
+
 
 </RelativeLayout>

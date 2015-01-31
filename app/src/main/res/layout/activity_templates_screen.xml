@@ -2,17 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
+
     tools:context="com.example.marculator.comp3717.editCourseDetails">
 
     <!--EditText box for entering the course-->
     <EditText
         android:id="@+id/edit_course_box"
-        android:layout_weight="1"
-        android:layout_width = "0dp"
+        android:layout_width = "wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/edit_course"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="courseName"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="courseName"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="courseName"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="courseName"/>
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
 
     <!--add button to add a course-->
     <Button
@@ -21,5 +43,21 @@
         android:text="@string/button_add_course"
         android:onClick="addCourseDetails"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_delete_course"
+        />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_import_course"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_export_course"
+        />
+    </LinearLayout>
 </LinearLayout>

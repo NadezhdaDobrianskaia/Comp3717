@@ -13,6 +13,9 @@
     <string name="title_activity_templates_screen">Templates</string>
     <string name="edit_course">Enter the course to add</string>
     <string name="button_add_course">ADD</string>
+    <string name="button_delete_course">Delete</string>
+    <string name="button_import_course">Import</string>
+    <string name="button_export_course">Export</string>
     <string name="templates">Templates</string>
     <!-- <string name="title_course_add">addCourse</string>-->
     <!--end Add Course Screen-->
