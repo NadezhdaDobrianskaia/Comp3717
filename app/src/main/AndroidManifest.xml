@@ -21,8 +21,8 @@
         <!--Add Course Screen this is where the user can choose
          to add a course with related fields for marcks calculations-->
         <activity
-            android:name=".addCourseScreen"
-            android:label="@string/title_activity_add_course_screen" >
+            android:name=".templatesScreen"
+            android:label="@string/title_activity_templates_screen" >
         </activity>
 
         <!--Chart Screen this is where the user can a chart
@@ -44,18 +44,18 @@
         details of their marks.  this activity is currently not connected
         to the home page-->
         <activity
-            android:name=".viewDetailsScreen"
-            android:label="@string/title_activity_view_details_screen" >
+            android:name=".inputMarksScreen"
+            android:label="@string/title_activity_input_marks_screen" >
         </activity>
 
 
         <activity
-            android:name=".addCourseDetails"
-            android:label="@string/title_activity_add"
-            android:parentActivityName=".addCourseScreen" >
+            android:name=".editCourseDetails"
+            android:label="@string/title_activity_edit_course_details_screen"
+            android:parentActivityName=".templatesScreen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marculator.comp3717.addCourseScreen" />
+                android:value=".templatesScreen" />
         </activity>
 
 

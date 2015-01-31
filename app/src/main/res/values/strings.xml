@@ -10,10 +10,10 @@
 
     <!--Add Course Screen this is where the user can choose
      to add a course with related fields for calculating marks-->
-    <string name="title_activity_add_course_screen">Add Course</string>
+    <string name="title_activity_templates_screen">Templates</string>
     <string name="edit_course">Enter the course to add</string>
     <string name="button_add_course">ADD</string>
-    <string name="addCourse">Add Course</string>
+    <string name="templates">Templates</string>
     <!-- <string name="title_course_add">addCourse</string>-->
     <!--end Add Course Screen-->
 
@@ -32,15 +32,15 @@
     <!--View Details Screen where the user can view details of their marks.
       this activity is currently not connected
     to the home page-->
-    <string name="title_activity_view_details_screen">Details</string>
-    <string name="viewDetails">View Details</string> <!--button on homepage-->
+    <string name="title_activity_input_marks_screen">Input Marks</string>
+    <string name="inputMarks">Input Marks</string> <!--button on homepage-->
     <!--end View Details Screen-->
 
     <!--activity_add_activity-->
     <string name="edit_activity_name">Enter the activity to add</string>
     <string name="edit_weight">Enter the weight of the activity</string>
     <string name="edit_dueDate">Enter the due date</string>
-    <string name="title_activity_add">Add an Activity</string>
+    <string name="title_activity_edit_course_details_screen">Edit a Course</string>
     <string name="button_add_activity">ADD</string>
     <!--end activity_add_activity-->
 

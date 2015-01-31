@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 
 
-public class addCourseDetails extends ActionBarActivity {
+public class editCourseDetails extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.addCourseScreen";
+    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.templatesScreen";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_course_details);
+        setContentView(R.layout.activity_edit_course_details);
     }
 
 
@@ -44,7 +44,7 @@ public class addCourseDetails extends ActionBarActivity {
 
     //Called when the user clicks the add button for add activity screen
     public void backToCourseScreen(View view){
-        Intent intent = new Intent(this,addCourseScreen.class);
+        Intent intent = new Intent(this,templatesScreen.class);
         EditText editText = (EditText)findViewById(R.id.edit_activity);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
