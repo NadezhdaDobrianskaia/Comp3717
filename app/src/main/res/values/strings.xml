@@ -8,10 +8,10 @@
 
 
 
-    <!--Add Course Screen this is where the user can choose
+    <!--templates Screen this is where the user can choose
      to add a course with related fields for calculating marks-->
     <string name="title_activity_templates_screen">Templates</string>
-    <string name="edit_course">Enter the course to add</string>
+    <string name="button_edit_course">Edit</string>
     <string name="button_add_course">ADD</string>
     <string name="button_delete_course">Delete</string>
     <string name="button_import_course">Import</string>
@@ -39,12 +39,18 @@
     <string name="inputMarks">Input Marks</string> <!--button on homepage-->
     <!--end View Details Screen-->
 
-    <!--activity_add_activity-->
-    <string name="courseName">Enter Course Name:</string>
-    <string name="edit_activity_name">Enter the activity to add</string>
-    <string name="edit_weight">Enter the weight of the activity</string>
-    <string name="edit_dueDate">Enter the due date</string>
+    <!--edit_course_detail-->
     <string name="title_activity_edit_course_details_screen">Edit a Course</string>
+    <string name="courseName">Enter Course Name:</string>
+    <string name="category">Category:</string>
+    <string name="categoryWeight">Weight(%):</string>
+    <string name="categoryDueDate">Due Date:</string>
+
+    <string name="edit_course_name">Enter Course Name</string>
+    <string name="edit_category">Select Category</string>
+    <string name="edit_categoryWeight">Select Weight</string>
+    <string name="edit_dueDate">Enter the due date</string>
+
     <string name="button_add_activity">ADD</string>
     <!--end activity_add_activity-->
 

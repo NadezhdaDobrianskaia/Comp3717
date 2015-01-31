@@ -11,12 +11,17 @@ import android.widget.EditText;
 
 public class editCourseDetails extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.templatesScreen";
+
+    private EditText courseName; //category, weight, dueDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_course_details);
+        courseName = (EditText)findViewById(R.id.edit_courseName);
+        //category = (EditText)findViewById(R.id.edit_category);
+        //weight = (EditText)findViewById(R.id.edit_weight);
+        //dueDate = (EditText)findViewById(R.id.edit_dueDate);
     }
 
 
@@ -43,11 +48,14 @@ public class editCourseDetails extends ActionBarActivity {
     }
 
     //Called when the user clicks the add button for add activity screen
-    public void backToCourseScreen(View view){
-        Intent intent = new Intent(this,templatesScreen.class);
-        EditText editText = (EditText)findViewById(R.id.edit_activity);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+    public void addToTemplatesScreen(View view){
+        Intent i = new Intent();
+        Bundle name = new Bundle();
+        name.putString("courseName",courseName.getText().toString());
+        //name.putString("category",category.getText().toString());
+        //name.putInt("weight",Integer.parseInt( weight.getText().toString()));
+        i.putExtras(name);
+        setResult(RESULT_OK, i);
+        finish();
     }
 }
