@@ -40,6 +40,7 @@
     <!--end View Details Screen-->
 
     <!--activity_add_activity-->
+    <string name="courseName">Enter Course Name:</string>
     <string name="edit_activity_name">Enter the activity to add</string>
     <string name="edit_weight">Enter the weight of the activity</string>
     <string name="edit_dueDate">Enter the due date</string>
