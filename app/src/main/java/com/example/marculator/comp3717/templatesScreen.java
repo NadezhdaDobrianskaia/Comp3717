@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.view.ViewGroup;
+
 import android.widget.TextView;
 
 
@@ -49,22 +51,32 @@ public class templatesScreen extends ActionBarActivity {
 
     public void addCourseDetails(View view){
         Intent i = new Intent(this,editCourseDetails.class);
-        startActivity(i);
+        startActivityForResult(i, 1);
     }
 
 
     //Called when the user clicks the add button for add course screen
     public void editCourseDetails(View view){
         Intent i = new Intent(this,editCourseDetails.class);
-        startActivityForResult(i, 1);
+        startActivityForResult(i, 2);
     }
 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            if (requestCode == 1) {
+            if (requestCode == 2) {
                 Bundle bundle = data.getExtras();
                 course1.setText(bundle.getString("courseName"));
+            }
+            if (requestCode == 1) {
+                ViewGroup layout = (ViewGroup) findViewById(R.id.templates_linear_layout);
+
+                TextView n=new TextView(this);
+               // n.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                n.setText("Added tv");
+                layout.addView(n);
+                Bundle bundle = data.getExtras();
+                n.setText(bundle.getString("courseName"));
             }
         }
 
