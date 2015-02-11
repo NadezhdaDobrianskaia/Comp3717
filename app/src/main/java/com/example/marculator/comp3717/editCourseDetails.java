@@ -18,7 +18,7 @@ public class editCourseDetails extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_course_details);
-        courseName = (EditText)findViewById(R.id.edit_courseName);
+        courseName = (EditText)findViewById(R.id.edit_course_details_course_editTextName);
         //category = (EditText)findViewById(R.id.edit_category);
         //weight = (EditText)findViewById(R.id.edit_weight);
         //dueDate = (EditText)findViewById(R.id.edit_dueDate);

@@ -44,14 +44,15 @@
     <string name="courseName">Enter Course Name:</string>
     <string name="category">Category:</string>
     <string name="categoryWeight">Weight(%):</string>
-    <string name="categoryDueDate">Due Date:</string>
+    <string name="itemName">Item:</string>
 
-    <string name="edit_course_name">Enter Course Name</string>
+    <string name="edit_course_name">Course Name</string>
     <string name="edit_category">Select Category</string>
-    <string name="edit_categoryWeight">Select Weight</string>
-    <string name="edit_dueDate">Enter the due date</string>
-
-    <string name="button_add_activity">ADD</string>
+    <string name="edit_categoryWeight">Enter Weight</string>
+    <string name="edit_itemName">Enter Item Name</string>
+    <string name="button_cancel_add_activity">Cancel</string>
+    <string name="button_save_activity">Save</string>
+    <string name="button_add_newItem">New Item</string>
     <!--end activity_add_activity-->
 
 </resources>
