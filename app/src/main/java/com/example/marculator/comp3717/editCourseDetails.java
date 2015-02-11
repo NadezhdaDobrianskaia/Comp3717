@@ -13,15 +13,19 @@ public class editCourseDetails extends ActionBarActivity {
 
 
     private EditText courseName; //category, weight, dueDate;
+    private EditText category,item, weight;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_course_details);
         courseName = (EditText)findViewById(R.id.edit_course_details_course_editTextName);
-        //category = (EditText)findViewById(R.id.edit_category);
-        //weight = (EditText)findViewById(R.id.edit_weight);
-        //dueDate = (EditText)findViewById(R.id.edit_dueDate);
+        category = (EditText)findViewById(R.id.edit_course_details_category);
+        item = (EditText)findViewById(R.id.edit_course_details_itemName);
+        weight = (EditText)findViewById(R.id.edit_course_details_weight);
+        Bundle course = getIntent().getExtras();
+        courseName.setText(course.getString("course"));
     }
 
 

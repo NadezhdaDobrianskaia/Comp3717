@@ -43,7 +43,7 @@
                 android:id="@+id/textView_course2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="courseName"
+                android:text="course Name 2"
                 android:layout_weight = "5"/>
             <Button
                 android:id="@+id/templates_editBtn_course2"
@@ -64,7 +64,7 @@
                 android:id="@+id/textView_course3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="courseName"
+                android:text="course Name 3"
                 android:layout_weight="5"/>
             <Button
                 android:id="@+id/templates_editBtn_course3"
@@ -83,7 +83,7 @@
                 android:id="@+id/textView_course4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="courseName"
+                android:text="course Name 4"
                 android:layout_weight="5"/>
             <Button
                 android:id="@+id/templates_editBtn_course4"

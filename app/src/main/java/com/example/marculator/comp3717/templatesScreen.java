@@ -57,6 +57,9 @@ public class templatesScreen extends ActionBarActivity {
 
     public void addCourseDetails(View view){
         Intent i = new Intent(this,editCourseDetails.class);
+        Bundle course = new Bundle();
+        course.putString("course","add was called");
+        i.putExtras(course);
         startActivityForResult(i, 1);
     }
 
@@ -66,16 +69,16 @@ public class templatesScreen extends ActionBarActivity {
         Intent i = new Intent(this,editCourseDetails.class);
         Bundle course = new Bundle();
         //add if statment to make sure that the edit is editing the right one
-        if(view == course1)
+        if(view == editCourse1)
             course.putString("course",course1.getText().toString());
-        else if(view == course2)
+        else if(view == editCourse2)
             course.putString("course",course2.getText().toString());
-        else if(view == course3)
+        else if(view == editCourse3)
             course.putString("course",course3.getText().toString());
-        else if(view == course4)
+        else if(view == editCourse4)
             course.putString("course",course4.getText().toString());
         else //make an error
-            ;
+            course.putString("course","empty");
         i.putExtras(course);
 
 
