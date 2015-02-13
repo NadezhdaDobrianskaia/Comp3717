@@ -53,6 +53,14 @@
     <string name="button_cancel_add_activity">Cancel</string>
     <string name="button_save_activity">Save</string>
     <string name="button_add_newItem">New Item</string>
+
+    <string-array name="category_list">
+        <item>Quiz</item>
+        <item>Assignment</item>
+        <item>Lab</item>
+        <item>Exam</item>
+        <item>Other</item>
+    </string-array>
     <!--end activity_add_activity-->
 
 </resources>

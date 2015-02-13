@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/fullLayout">
 
     tools:context="com.example.marculator.comp3717.editCourseDetails">
 
@@ -19,123 +20,63 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/courseLayout">
+
+
             <TextView
-                android:id="@+id/textView_course1"
+                android:id="@+id/textView_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="courseName"
                 android:layout_weight="5"/>
             <Button
-                android:id="@+id/templates_editBtn_course1"
+                android:id="@+id/templates_editBtn_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button_edit_course"
                 android:onClick="editCourseDetails"
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:id="@+id/textView_course2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="course Name 2"
-                android:layout_weight = "5"/>
-            <Button
-                android:id="@+id/templates_editBtn_course2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_edit_course"
-                android:onClick="editCourseDetails"
-                android:layout_gravity="right"
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:id="@+id/textView_course3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="course Name 3"
-                android:layout_weight="5"/>
-            <Button
-                android:id="@+id/templates_editBtn_course3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_edit_course"
-                android:onClick="editCourseDetails"/>
+                android:singleLine="true" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:id="@+id/textView_course4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="course Name 4"
-                android:layout_weight="5"/>
-            <Button
-                android:id="@+id/templates_editBtn_course4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_edit_course"
-                android:onClick="editCourseDetails"/>
-
-        </LinearLayout>
     </LinearLayout>
-    <Button
-        android:id="@+id/templates_editBtn_course"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_edit_course"
-        android:onClick="editCourseDetails"
-        />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="1"
-        >
+        android:layout_weight="0.13"
+        android:id="@+id/controlLayout">
 
         <!--add button to add a course-->
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_add_course"
-            android:onClick="addCourseDetails"
+            android:onClick="addCourse"
             android:layout_marginLeft="5dp"
-            />
+            android:layout_gravity="center_vertical" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_delete_course"
             android:layout_marginLeft="5dp"
-
-            />
+            android:layout_gravity="center_vertical" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_import_course"
             android:layout_marginLeft="5dp"
-            />
+            android:layout_gravity="center_vertical" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_export_course"
             android:layout_marginLeft="5dp"
-            />
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
 </LinearLayout>

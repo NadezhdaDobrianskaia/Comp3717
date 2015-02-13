@@ -6,14 +6,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 
-public class editCourseDetails extends ActionBarActivity {
-
+public class editCourseDetails extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText courseName; //category, weight, dueDate;
-    private EditText category,item, weight;
+    private EditText item, weight;
+    Spinner spinner;
 
 
     @Override
@@ -21,11 +25,17 @@ public class editCourseDetails extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_course_details);
         courseName = (EditText)findViewById(R.id.edit_course_details_course_editTextName);
-        category = (EditText)findViewById(R.id.edit_course_details_category);
+
         item = (EditText)findViewById(R.id.edit_course_details_itemName);
         weight = (EditText)findViewById(R.id.edit_course_details_weight);
         Bundle course = getIntent().getExtras();
         courseName.setText(course.getString("course"));
+
+        //Creating an adapter so the user can select the category for his item
+        spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
 
@@ -61,5 +71,22 @@ public class editCourseDetails extends ActionBarActivity {
         i.putExtras(name);
         setResult(RESULT_OK, i);
         finish();
+    }
+
+    // The following to methods belong to the AdapterView.OnItemSelectedListener interface and must
+    // overridden in order to implement the listener
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // I've cast the result of the spinner into a view. We can use this later to identify
+        // the selected category. It is currently unused.
+
+        // TextView myText = (TextView) view;
+    }
+
+    // This is called when the current selection disappears due to some event like touch getting
+    // activated or the adapter becomes empty
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

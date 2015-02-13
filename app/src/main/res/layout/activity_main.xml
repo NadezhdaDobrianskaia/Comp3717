@@ -11,56 +11,56 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textColor="#ffffffff"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:layout_centerVertical="true" />
+        android:layout_marginTop="53dp" />
 
     <!--add Course button-->
     <Button
         android:id="@+id/buttonHomeAddCourse"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/templates"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="91dp"
         android:clickable="true"
-        android:onClick="addCourseScreenButton" />
+        android:onClick="addCourseScreenButton"
+        android:layout_marginBottom="36dp"
+        android:layout_above="@+id/buttonHomeViewDetails"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!--charts button-->
     <Button
         android:id="@+id/buttonHomeCharts"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/charts"
-        android:layout_alignTop="@+id/buttonHomeAddCourse"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="chartsScreen" />
+        android:onClick="chartsScreen"
+        android:layout_below="@+id/buttonHomeViewDetails"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp" />
 
     <!--view details button-->
     <Button
         android:id="@+id/buttonHomeViewDetails"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/inputMarks"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="63dp"
-        android:onClick="viewDetailsScreen"/>
+        android:onClick="viewDetailsScreen"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 
     <!-- priority item button-->
     <Button
         android:id="@+id/buttonHomePriorityList"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/priorityItems"
-        android:layout_alignTop="@+id/buttonHomeViewDetails"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="priorityItemsScreen"/>
+        android:onClick="priorityItemsScreen"
+        android:layout_below="@+id/buttonHomeCharts"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp" />
 
 </RelativeLayout>

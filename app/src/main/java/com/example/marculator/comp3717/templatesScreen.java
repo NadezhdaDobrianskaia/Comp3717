@@ -1,8 +1,10 @@
 package com.example.marculator.comp3717;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -18,18 +21,19 @@ public class templatesScreen extends ActionBarActivity {
 //    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.editCourseDetails";
     TextView course1, course2, course3, course4;
     Button editCourse1, editCourse2, editCourse3, editCourse4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_templates_screen);
-        course1 = (TextView)findViewById(R.id.textView_course1);
-        course2 = (TextView)findViewById(R.id.textView_course2);
-        course3 = (TextView)findViewById(R.id.textView_course3);
-        course4 = (TextView)findViewById(R.id.textView_course4);
-        editCourse1 = (Button)findViewById(R.id.templates_editBtn_course1);
-        editCourse2 = (Button)findViewById(R.id.templates_editBtn_course2);
-        editCourse3 = (Button)findViewById(R.id.templates_editBtn_course3);
-        editCourse4 = (Button)findViewById(R.id.templates_editBtn_course4);
+        course1 = (TextView)findViewById(R.id.textView_course);
+//        course2 = (TextView)findViewById(R.id.textView_course2);
+//        course3 = (TextView)findViewById(R.id.textView_course3);
+//        course4 = (TextView)findViewById(R.id.textView_course4);
+        editCourse1 = (Button)findViewById(R.id.templates_editBtn_course);
+//        editCourse2 = (Button)findViewById(R.id.templates_editBtn_course2);
+//        editCourse3 = (Button)findViewById(R.id.templates_editBtn_course3);
+//        editCourse4 = (Button)findViewById(R.id.templates_editBtn_course4);
     }
 
 
@@ -61,6 +65,25 @@ public class templatesScreen extends ActionBarActivity {
         course.putString("course","add was called");
         i.putExtras(course);
         startActivityForResult(i, 1);
+    }
+
+    // Adds a new course to the already existing list of courses
+    public void addCourse(View view){
+
+        // Identify our layout
+        LinearLayout layout = (LinearLayout)findViewById(R.id.templates_linear_layout);
+        LinearLayout.LayoutParams LLParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layout.setLayoutParams(LLParams);
+
+        // Creates layout inflater
+        LayoutInflater inflater =(LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        // Note we are using the new XML here for the child
+        View view1 = inflater.inflate(R.layout.activity_templayout, null);
+
+        // Creates viewgroup insert point and adds the view.
+        ViewGroup insertPoint = (ViewGroup) findViewById(R.id.templates_linear_layout);
+        insertPoint.addView(view1, 0, LLParams);
+
     }
 
 

@@ -8,8 +8,8 @@
     tools:context="com.example.marculator.comp3717.editCourseDetails">
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         >
 
@@ -51,14 +51,12 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 />
-            <EditText
-                android:id="@+id/edit_course_details_category"
-                android:layout_weight="1"
-                android:layout_width = "match_parent"
+
+            <Spinner
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/edit_category"
-                android:layout_marginRight="30dp"
-                />
+                android:id="@+id/spinner"
+                android:layout_column="1" />
 
         </TableRow>
 
