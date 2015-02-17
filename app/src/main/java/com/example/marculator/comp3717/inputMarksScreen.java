@@ -1,17 +1,45 @@
 package com.example.marculator.comp3717;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+
 import android.os.Bundle;
+
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
 
-public class inputMarksScreen extends ActionBarActivity {
+public class inputMarksScreen extends Activity {
+
+    //public static String val;
+
+    //TextView course1;
+    String course1Name = "Hello";
+
+    String[] courses ={
+        course1Name,
+        "course 2",
+        "course 3",
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_marks_screen);
+
+        //course1 = (TextView)findViewById(R.id.textView_course);
+        //course1Name = course1.getText().toString();
+
+       // Log.d("val", val);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, courses);
+
+        AutoCompleteTextView textView = (AutoCompleteTextView)findViewById(R.id.autoFillCourses);
+        textView.setThreshold(3);
+        textView.setAdapter(adapter);
     }
 
 

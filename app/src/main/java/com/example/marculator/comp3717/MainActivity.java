@@ -3,9 +3,13 @@ package com.example.marculator.comp3717;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -32,6 +36,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void viewDetailsScreen(View v){
+       // inputMarksScreen.val = ((TextView)findViewById(R.id.textView_course)).getText().toString();
+        //Log.d("TextView", ((TextView) findViewById(R.id.textView_course)).getText().toString());
+
         startActivity(new Intent(getApplicationContext(), inputMarksScreen.class));
     }
 
