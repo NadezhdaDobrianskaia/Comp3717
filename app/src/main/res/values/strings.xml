@@ -37,6 +37,7 @@
     to the home page-->
     <string name="title_activity_input_marks_screen">Input Marks</string>
     <string name="inputMarks">Input Marks</string> <!--button on homepage-->
+    <string name="inputMarksScreenButton">Input Mark</string> <!--button on input-marks-screen-->
     <!--end View Details Screen-->
 
     <!--edit_course_detail-->
