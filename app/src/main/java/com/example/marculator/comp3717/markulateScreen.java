@@ -6,19 +6,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class priorityItemsScreen extends ActionBarActivity {
+public class markulateScreen extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_priority_items_screen);
+        setContentView(R.layout.markulate_screen);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_priority_items_screen, menu);
+        getMenuInflater().inflate(R.menu.markulate_screen, menu);
         return true;
     }
 

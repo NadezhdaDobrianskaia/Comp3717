@@ -35,8 +35,8 @@ public class MainActivity extends ActionBarActivity {
         startActivity(new Intent(getApplicationContext(), inputMarksScreen.class));
     }
 
-    public void priorityItemsScreen(View v){
-        startActivity(new Intent(getApplicationContext(), priorityItemsScreen.class));
+    public void markulateScreen(View v){
+        startActivity(new Intent(getApplicationContext(), markulateScreen.class));
     }
 
 

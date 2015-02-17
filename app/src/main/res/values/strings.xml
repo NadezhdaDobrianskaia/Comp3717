@@ -30,8 +30,8 @@
     <!-- Priority Screen where the user can view
     priorities to study for.  this activity is currently not connected
     to the home page-->
-    <string name="title_activity_priority_items_screen">Priority Items</string>
-    <string name="priorityItems">Priority Items</string> <!--button on homepage-->
+    <string name="title_activity_markulate_screen">Markulate!!!</string>
+    <string name="markulate">Markulate</string> <!--button on homepage-->
     <!--View Details Screen where the user can view details of their marks.
       this activity is currently not connected
     to the home page-->

@@ -8,47 +8,54 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <!-- this is the main page activity-->
+        <!-- this is the main page activity -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--Add Course Screen this is where the user can choose
-         to add a course with related fields for marcks calculations-->
+        <!--
+         Add Course Screen this is where the user can choose
+         to add a course with related fields for marcks calculations
+        -->
         <activity
             android:name=".templatesScreen"
             android:label="@string/title_activity_templates_screen" >
         </activity>
 
-        <!--Chart Screen this is where the user can a chart
-        of his or her marks-->
+        <!--
+        Chart Screen this is where the user can a chart
+        of his or her marks
+        -->
         <activity
             android:name=".chartsScreen"
             android:label="@string/title_activity_charts_screen" >
         </activity>
 
-        <!--Priority Screen where the user can view
+        <!--
+        Priority Screen where the user can view
         priorities to study for.  this activity is currently not connected
-        to the home page-->
+        to the home page
+        -->
         <activity
-            android:name=".priorityItemsScreen"
-            android:label="@string/title_activity_priority_items_screen" >
+            android:name=".markulateScreen"
+            android:label="@string/title_activity_markulate_screen" >
         </activity>
 
-        <!--View Details Screen where the user can view
+        <!--
+        View Details Screen where the user can view
         details of their marks.  this activity is currently not connected
-        to the home page-->
+        to the home page
+        -->
         <activity
             android:name=".inputMarksScreen"
             android:label="@string/title_activity_input_marks_screen" >
         </activity>
-
-
         <activity
             android:name=".editCourseDetails"
             android:label="@string/title_activity_edit_course_details_screen"
