@@ -8,7 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
+import android.widget.Spinner;
+
 
 
 public class inputMarksScreen extends Activity {
@@ -17,6 +18,7 @@ public class inputMarksScreen extends Activity {
 
     //TextView course1;
     String course1Name = "Hello";
+    Spinner spinner;
 
     String[] courses ={
         course1Name,
@@ -40,6 +42,10 @@ public class inputMarksScreen extends Activity {
         AutoCompleteTextView textView = (AutoCompleteTextView)findViewById(R.id.autoFillCourses);
         textView.setThreshold(3);
         textView.setAdapter(adapter);
+        spinner = (Spinner) findViewById(R.id.categorySpinner);
+        ArrayAdapter adapterSpinner = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapterSpinner);
+        //spinner.setOnItemSelectedListener(this);
     }
 
 
