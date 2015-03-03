@@ -86,6 +86,10 @@ public class templatesScreen extends ActionBarActivity {
 
     }
 
+    public void exportCourse(View view) {
+        new MongoDBTask();
+    }
+
 
     //Called when the user clicks the add button for add course screen
     public void editCourseDetails(View view){
