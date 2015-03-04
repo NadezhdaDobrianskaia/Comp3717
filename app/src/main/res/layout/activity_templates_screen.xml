@@ -1,5 +1,4 @@
 <LinearLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -40,6 +39,51 @@
                 android:singleLine="true" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+        >
+
+
+            <TextView
+                android:id="@+id/textView_course2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math 3510"
+                android:layout_weight="5"/>
+            <Button
+                android:id="@+id/templates_editBtn_course2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_edit_course"
+                android:onClick="editCourseDetails"
+                android:singleLine="true" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+
+            <TextView
+                android:id="@+id/textView_course3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math 3510"
+                android:layout_weight="5"/>
+            <Button
+                android:id="@+id/templates_editBtn_course3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_edit_course"
+                android:onClick="editCourseDetails"
+                android:singleLine="true" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -55,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_add_course"
-            android:onClick="addCourse"
+            android:onClick="addCourseDetails"
             android:layout_marginLeft="5dp"
             android:layout_gravity="center_vertical" />
 

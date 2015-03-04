@@ -14,7 +14,7 @@
             android:id="@+id/textView_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="courseName"
+            android:text="bla;alskdflkasjdf"
             android:layout_weight="5"/>
         <Button
             android:id="@+id/templates_editBtn_course"

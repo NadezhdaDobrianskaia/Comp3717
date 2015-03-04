@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -22,26 +23,28 @@ public class templatesScreen extends ActionBarActivity {
 //    public final static String EXTRA_MESSAGE = "com.calculatorAssign.myapplication.editCourseDetails";
     TextView course1, course2, course3, course4;
     Button editCourse1, editCourse2, editCourse3, editCourse4;
-
+    int value = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_templates_screen);
         course1 = (TextView)findViewById(R.id.textView_course);
-//        course2 = (TextView)findViewById(R.id.textView_course2);
-//        course3 = (TextView)findViewById(R.id.textView_course3);
-//        course4 = (TextView)findViewById(R.id.textView_course4);
+        course2 = (TextView)findViewById(R.id.textView_course2);
+        course3 = (TextView)findViewById(R.id.textView_course3);
+       // course4 = (TextView)findViewById(R.id.textView_course4);
         editCourse1 = (Button)findViewById(R.id.templates_editBtn_course);
-//        editCourse2 = (Button)findViewById(R.id.templates_editBtn_course2);
-//        editCourse3 = (Button)findViewById(R.id.templates_editBtn_course3);
-//        editCourse4 = (Button)findViewById(R.id.templates_editBtn_course4);
+        editCourse2 = (Button)findViewById(R.id.templates_editBtn_course2);
+        editCourse3 = (Button)findViewById(R.id.templates_editBtn_course3);
+        //editCourse4 = (Button)findViewById(R.id.templates_editBtn_course4);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu); //calling parent
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_course_screen, menu);
+        MenuInflater minflate = getMenuInflater();
+        minflate.inflate(R.menu.menu_add_course_screen, menu);
         return true;
     }
 
@@ -60,6 +63,7 @@ public class templatesScreen extends ActionBarActivity {
     }
 
 
+    // Adds a new course (on click of the add button) to the already existing list of courses
     public void addCourseDetails(View view){
         Intent i = new Intent(this,editCourseDetails.class);
         Bundle course = new Bundle();
@@ -68,24 +72,8 @@ public class templatesScreen extends ActionBarActivity {
         startActivityForResult(i, 1);
     }
 
-    // Adds a new course (on click of the add button) to the already existing list of courses
-    public void addCourse(View view){
 
-        // Identify our layout
-        LinearLayout layout = (LinearLayout)findViewById(R.id.templates_linear_layout);
-        LinearLayout.LayoutParams LLParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        layout.setLayoutParams(LLParams);
 
-        // Creates layout inflater
-        LayoutInflater inflater =(LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        // Note we are using the new XML here for the child
-        View view1 = inflater.inflate(R.layout.activity_templayout, null);
-
-        // Creates viewgroup insert point and adds the view.
-        ViewGroup insertPoint = (ViewGroup) findViewById(R.id.templates_linear_layout);
-        insertPoint.addView(view1, 0, LLParams);
-
-    }
 
     //Exports the existing courses into the database
     public void exportCourse(View view) {
@@ -97,20 +85,27 @@ public class templatesScreen extends ActionBarActivity {
         new MongoDBTask("get","all","all");
     }
 
-
+int selected = 0;
     //Called when the user clicks the Edit button for templates screen
     public void editCourseDetails(View view){
         Intent i = new Intent(this,editCourseDetails.class);
         Bundle course = new Bundle();
         //add if statment to make sure that the edit is editing the right one
-        if(view == editCourse1)
-            course.putString("course",course1.getText().toString());
-        else if(view == editCourse2)
-            course.putString("course",course2.getText().toString());
-        else if(view == editCourse3)
-            course.putString("course",course3.getText().toString());
-        else if(view == editCourse4)
+        if(view == editCourse1) {
+            course.putString("course", course1.getText().toString());
+            selected = 1;
+        }
+        else if(view == editCourse2) {
+            course.putString("course", course2.getText().toString());
+            selected = 2;
+        }
+        else if(view == editCourse3) {
+            course.putString("course", course3.getText().toString());
+            selected = 3;
+        }else if(view == editCourse4)
             course.putString("course",course4.getText().toString());
+        //else if(view ==((Button)findViewById(0)) )
+        //    course.putString("course",course3.getText().toString());
         else //make an error
             course.putString("course","empty");
         i.putExtras(course);
@@ -126,19 +121,63 @@ public class templatesScreen extends ActionBarActivity {
         if (resultCode == RESULT_OK) {
             if (requestCode == 2) {
                 Bundle bundle = data.getExtras();
-                course1.setText(bundle.getString("courseName"));
+                if(selected == 1) {
+                    course1.setText(bundle.getString("courseName"));
+                }
+                else if(selected ==2){
+                    course2.setText(bundle.getString("courseName"));
+                }
+                else
+                    course3.setText(bundle.getString("courseName"));
             }
             if (requestCode == 1) {
-                ViewGroup layout = (ViewGroup) findViewById(R.id.templates_linear_layout);
+                //-------------Inflate layout-----------
 
+                // Identify our layout
+                LinearLayout layout = (LinearLayout)findViewById(R.id.templates_linear_layout);
+
+                LinearLayout.LayoutParams LLParams =
+                        new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                layout.setLayoutParams(LLParams);
+
+                // Creates layout inflater
+                LayoutInflater inflater =
+                        (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                // Note we are using the new XML here for the child
+
+                View view1 = inflater.inflate(R.layout.activity_templayout,null);
+
+
+                // Creates viewgroup insert point and adds the view.
+                ViewGroup insertPoint = (ViewGroup) findViewById(R.id.templates_linear_layout);
+                insertPoint.addView(view1, 0, LLParams);
+
+
+
+                //-------------end inflate layout--------------
+                ViewGroup layoutb = (ViewGroup) findViewById(R.id.templates_linear_layout);
                 TextView n=new TextView(this);
+                Button b = new Button(this);
                // n.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
                 n.setText("Added tv");
-                layout.addView(n);
-                Bundle bundle = data.getExtras();
-                n.setText(bundle.getString("courseName"));
+                //b.generateViewId();
+                b.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        editCourseDetails(v);
+                    }
+                });
+                b.setId(value);
+                value++;
+                b.setText("Edit");
+                b.setWidth(30);
+                layoutb.addView(n);
+                layoutb.addView(b);
+                Bundle bundle2 = data.getExtras();
+                n.setText(bundle2.getString("courseName"));
+
             }
         }
-
     }
 }
