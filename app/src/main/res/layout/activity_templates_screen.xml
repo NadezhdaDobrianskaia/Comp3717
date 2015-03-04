@@ -71,12 +71,14 @@
             android:layout_height="wrap_content"
             android:text="@string/button_import_course"
             android:layout_marginLeft="5dp"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:onClick="importCourse" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_export_course"
             android:layout_marginLeft="5dp"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:onClick="exportCourse" />
     </LinearLayout>
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -67,7 +68,7 @@ public class templatesScreen extends ActionBarActivity {
         startActivityForResult(i, 1);
     }
 
-    // Adds a new course to the already existing list of courses
+    // Adds a new course (on click of the add button) to the already existing list of courses
     public void addCourse(View view){
 
         // Identify our layout
@@ -86,12 +87,18 @@ public class templatesScreen extends ActionBarActivity {
 
     }
 
+    //Exports the existing courses into the database
     public void exportCourse(View view) {
-        new MongoDBTask();
+        new MongoDBTask("add","111",course1.getText().toString());
+    }
+
+    //Exports the existing courses into the database
+    public void importCourse(View view) {
+        new MongoDBTask("get","all","all");
     }
 
 
-    //Called when the user clicks the add button for add course screen
+    //Called when the user clicks the Edit button for templates screen
     public void editCourseDetails(View view){
         Intent i = new Intent(this,editCourseDetails.class);
         Bundle course = new Bundle();
@@ -113,7 +120,8 @@ public class templatesScreen extends ActionBarActivity {
         startActivityForResult(i, 2);
     }
 
-
+    //After the user has finished adding details for the course on other screen,
+    //when they come back this is called
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == 2) {
