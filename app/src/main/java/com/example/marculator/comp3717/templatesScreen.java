@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class templatesScreen extends ActionBarActivity {
@@ -72,17 +76,20 @@ public class templatesScreen extends ActionBarActivity {
         startActivityForResult(i, 1);
     }
 
+    public void updateAdapter(ArrayList<CourseData> s) {
 
-
+        Toast.makeText(getApplicationContext(), "inserted: "+s.get(0).getCourseName(), Toast.LENGTH_LONG).show();
+    }
 
     //Exports the existing courses into the database
     public void exportCourse(View view) {
-        new MongoDBTask("add","111",course1.getText().toString());
+        MongoDBTask m = new MongoDBTask(this,"add","111",course1.getText().toString());
+
     }
 
     //Exports the existing courses into the database
     public void importCourse(View view) {
-        new MongoDBTask("get","all","all");
+        new MongoDBTask(this,"get","all","all");
     }
 
 int selected = 0;
