@@ -27,27 +27,6 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    public void addCourseScreenButton(View v) {
-        startActivity(new Intent(getApplicationContext(), templatesScreen.class));
-    }
-
-    public void chartsScreen(View v){
-        startActivity(new Intent(getApplicationContext(), chartsScreen.class));
-    }
-
-    public void viewDetailsScreen(View v){
-       // inputMarksScreen.val = ((TextView)findViewById(R.id.textView_course)).getText().toString();
-        //Log.d("TextView", ((TextView) findViewById(R.id.textView_course)).getText().toString());
-
-        startActivity(new Intent(getApplicationContext(), inputMarksScreen.class));
-    }
-
-    public void markulateScreen(View v){
-        startActivity(new Intent(getApplicationContext(), markulateScreen.class));
-    }
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -61,5 +40,9 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void templates_screen(View v) {
+        startActivity(new Intent(getApplicationContext(), templatesScreen.class));
     }
 }
