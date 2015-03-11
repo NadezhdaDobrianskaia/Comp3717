@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.marculator.comp3717" >
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -28,24 +30,10 @@
             android:label="@string/title_activity_templates_screen" >
         </activity>
 
-        <!--
-        Chart Screen this is where the user can a chart
-        of his or her marks
-        -->
-        <activity
-            android:name=".chartsScreen"
-            android:label="@string/title_activity_charts_screen" >
-        </activity>
+>
 
-        <!--
-        Priority Screen where the user can view
-        priorities to study for.  this activity is currently not connected
-        to the home page
-        -->
-        <activity
-            android:name=".markulateScreen"
-            android:label="@string/title_activity_markulate_screen" >
-        </activity>
+
+
 
         <!--
         View Details Screen where the user can view
@@ -56,16 +44,11 @@
             android:name=".inputMarksScreen"
             android:label="@string/title_activity_input_marks_screen" >
         </activity>
+
         <activity
-            android:name=".editCourseDetails"
-            android:label="@string/title_activity_edit_course_details_screen"
-            android:parentActivityName=".templatesScreen" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".templatesScreen" />
+            android:name=".courseDetailsScreen"
+            android:label="@string/title_activity_course_details_screen" >
         </activity>
-
-
     </application>
 
 </manifest>
