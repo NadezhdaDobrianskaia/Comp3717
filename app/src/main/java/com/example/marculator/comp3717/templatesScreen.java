@@ -4,16 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class templatesScreen extends ActionBarActivity {
@@ -70,17 +76,20 @@ public class templatesScreen extends ActionBarActivity {
         startActivityForResult(i, 1);
     }
 
+    public void updateAdapter(ArrayList<CourseData> s) {
 
-
+        Toast.makeText(getApplicationContext(), "inserted: "+s.get(0).getCourseName(), Toast.LENGTH_LONG).show();
+    }
 
     //Exports the existing courses into the database
     public void exportCourse(View view) {
-        new MongoDBTask("add","111",course1.getText().toString());
+        MongoDBTask m = new MongoDBTask(this,"add","111",course1.getText().toString());
+
     }
 
     //Exports the existing courses into the database
     public void importCourse(View view) {
-        new MongoDBTask("get","all","all");
+        new MongoDBTask(this,"get","all","all");
     }
 
 int selected = 0;
@@ -106,30 +115,27 @@ int selected = 0;
         //    course.putString("course",course3.getText().toString());
         else //make an error
             course.putString("course","empty");
-
         i.putExtras(course);
+
+
+
         startActivityForResult(i, 2);
     }
 
     //After the user has finished adding details for the course on other screen,
     //when they come back this is called
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Bundle bundle = data.getExtras();
         if (resultCode == RESULT_OK) {
             if (requestCode == 2) {
-
+                Bundle bundle = data.getExtras();
                 if(selected == 1) {
                     course1.setText(bundle.getString("courseName"));
                 }
                 else if(selected ==2){
                     course2.setText(bundle.getString("courseName"));
                 }
-                else if(selected ==3) {
+                else
                     course3.setText(bundle.getString("courseName"));
-                }
-                else {
-                    Toast.makeText(getBaseContext(),"I know I am calling the right button", Toast.LENGTH_SHORT).show();
-                }
             }
             if (requestCode == 1) {
                 //-------------Inflate layout-----------
@@ -164,7 +170,11 @@ int selected = 0;
                // n.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
                 n.setText("Added tv");
                 //b.generateViewId();
-
+                b.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        editCourseDetails(v);
+                    }
+                });
                 b.setId(value);
                 value++;
                 b.setText("Edit");
@@ -172,27 +182,9 @@ int selected = 0;
                 layoutb.addView(n);
                 layoutb.addView(b);
                 Bundle bundle2 = data.getExtras();
-               // n.setText(bundle2.getString("courseName"));
-                final Intent i = new Intent(this,editCourseDetails.class); //added code
-                i.putExtras(bundle);       //added code
-                n.setText(bundle.getString("courseName"));
-                b.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        //editCourseDetails(v);
-                        //editCourse(v, i);
-                        selected = 0;
-                        startActivityForResult(i, 2);
-                    }
-                });
+                n.setText(bundle2.getString("courseName"));
+
             }
         }
     }
-
-    public void editCourse(View view, Intent i){
-
-
-    }
-
-
-
 }

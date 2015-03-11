@@ -1,6 +1,7 @@
 package com.example.marculator.comp3717;
 
 import android.os.AsyncTask;
+import android.util.JsonReader;
 import android.util.Log;
 
 import com.mongodb.BasicDBObject;
@@ -10,26 +11,35 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
+import java.io.StringReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by student327 on 02/03/2015.
  */
 public class MongoDBTask {
 
-    private String stringResult1;
-
-    public MongoDBTask(String type, String id, String name) {
+    public MongoDBTask(templatesScreen activity, String type, String id, String name) {
         try {
-            new UseMongoTask().execute(type, id, name);
+            new UseMongoTask(activity).execute(type, id, name);
         } catch(Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    private class UseMongoTask extends AsyncTask<String, Integer, Long> {
-        protected Long doInBackground(String... strings) {
+    private class UseMongoTask extends AsyncTask<String, Integer, ArrayList<CourseData>> {
+        private templatesScreen activityRef;
+        private ArrayList<CourseData> data = new ArrayList<CourseData>();
+        CourseData c = new CourseData();
+
+        public UseMongoTask(templatesScreen a) {
+            this.activityRef = a;
+        }
+
+        protected ArrayList<CourseData> doInBackground(String... strings) {
             String str = strings[0];
             if(str.compareTo("add")==0) {
                 try {
@@ -62,6 +72,8 @@ public class MongoDBTask {
 
                     //print the inserted record
                     System.out.println("Inserted Document: " + course + "(fake)");
+                    c.setCourseName(strings[2]);
+
 
                 } catch (Exception e) {
                     System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -92,25 +104,40 @@ public class MongoDBTask {
                     //print the records
                     DBCursor cursor = coll.find();
                     int i = 1;
+                    StringReader r = new StringReader("[{"
+                            + "  \"apple\":\"red\""
+                            + "}]");
+                    r.read();
+                    JsonReader j = new JsonReader(r);
+                    //j.beginArray();
+                    j.beginObject();
+                    j.nextName();
+                    System.out.println("try "+j.nextString());
+                    j.endObject();
+                    //j.endArray();
                     while (cursor.hasNext()) {
+                        String name;
                         System.out.println("Existing doc: " + i + "(fake)");
                         System.out.println(cursor.next());
+                        c.setCourseName(cursor.next().toString());
                         i++;
                     }
                 } catch (Exception e) {
                     System.err.println(e.getClass().getName() + ": " + e.getMessage());
                 }
             }
-            return new Long(4935);
+
+            data.add(c);
+            return data;
         }
 
         protected void onProgressUpdate(Integer... progress) {
             //
         }
 
-        protected void onPostExecute(Long result) {
-
-            Log.d("TAG", "Downloaded " + result + " bytes");
+        protected void onPostExecute(ArrayList<CourseData> result) {
+            activityRef.updateAdapter(result);
+            Log.d("TAG", "Update: " + result);
         }
     }
 }
