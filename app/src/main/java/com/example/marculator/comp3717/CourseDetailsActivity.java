@@ -45,7 +45,7 @@ public class CourseDetailsActivity extends ListActivity {
         //ListView listView = getListView();
         //listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         //listView.setTextFilterEnabled(true);
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,paths));
+
     }
     public void onListItemClick(ListView parent, View v, int position, long id){
         Toast.makeText(this, "you have selected"+ paths[position], Toast.LENGTH_SHORT).show();
@@ -127,16 +127,17 @@ public class CourseDetailsActivity extends ListActivity {
         myItem.setWeight(Double.parseDouble(weight.getText().toString()));
 
         if(items.add(myItem)) {
+            itemsNames.add(myItem.getItemName());
             for(int i=0; i<items.size(); i++) {
-                itemsNames.add(myItem.getItemName());
                 Item temp = items.get(i);
                 Toast.makeText(getBaseContext(), temp.getCategory(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(getBaseContext(), temp.getItemName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), itemsNames.get(i), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(getBaseContext(), temp.getWeight().toString(), Toast.LENGTH_SHORT).show();
             }
         }
 
-
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,itemsNames));
         setItemVisibilityOff();
     }
 
