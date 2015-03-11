@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_gravity = "center_horizontal"
+    android:layout_weight="2"
+    android:layout_marginRight="30dp"
+    android:layout_marginLeft="30dp">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+
+        <TableRow
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <TextView
+                android:id="@+id/course_name_label"
+                android:text="@string/course_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                />
+            <EditText
+                android:id="@+id/course_name"
+                android:hint="@string/course_name"
+                android:layout_weight="1"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:text="@string/btn_new_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight = "1"
+                android:onClick="newItem"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:id="@+id/category_label"
+                android:text="@string/category_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/category"
+                android:layout_column="1"
+                android:layout_marginRight="15dp"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/item_name_label"
+                android:text="@string/item_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+
+                />
+
+            <EditText
+                android:id="@+id/item_name"
+                android:hint="@string/item_name"
+                android:layout_weight="1"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp">
+            <TextView
+                android:id="@+id/category_weight_label"
+                android:text="@string/category_weight_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                />
+
+            <EditText
+                android:id="@+id/category_weight"
+                android:hint="@string/category_weight"
+                android:layout_weight="1"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+
+        <TableRow>
+            <Button
+                android:text="@string/btn_add_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight = "1"
+                android:onClick="addItem"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="30dp">
+            <Button
+                android:text="@string/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight = "1"
+                android:onClick="detailsAdded" />
+            <Button
+                android:text="@string/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+
+                android:layout_gravity="bottom"
+                android:layout_weight = "1"
+
+                />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+
+</LinearLayout>
+

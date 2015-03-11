@@ -1,52 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Marculator</string>
+    <string name="action_settings">W?????????</string>
+
+    <!-- activity_main (Home) Screen -->
     <string name="markulator">Markulator</string>
-    <string name="action_settings">Settings</string>
-    <string name="CoolFaceButton">coolFace</string>
+    <string name="templates">Templates</string>
+    <string name="charts">Summary</string>
+    <string name="inputMarks">Imput Marks</string>
+    <string name="markulate">MARCULATE</string>
+    <!-- end activity_main (Home) Screen -->
 
-
-
-
-    <!--templates Screen this is where the user can choose
-     to add a course with related fields for calculating marks-->
-    <string name="title_activity_templates_screen">Templates</string>
-    <string name="button_edit_course">Edit</string>
-    <string name="button_add_course">ADD</string>
+    <string name="title_activity_templates_screen">templatesScreen</string>
+    <!-- activity_templates_screen -->
+    <string name="button_add_course">Add</string>
     <string name="button_delete_course">Delete</string>
     <string name="button_import_course">Import</string>
     <string name="button_export_course">Export</string>
-    <string name="templates">Templates</string>
-    <!-- <string name="title_course_add">addCourse</string>-->
-    <!--end Add Course Screen-->
+    <!-- end activity_templates_screen -->
 
-    <!--Chart Screen this is where the user can a chart
-    of his or her marks-->
+    <string name="title_activity_course_details_screen">courseDetailsScreen</string>
+    <!-- activity_course_details_screen -->
+    <string name="course_name_label">Course: </string>
+    <string name="course_name">Enter Course Name</string>
+    <string name="category_label">Category: </string>
+
+    <string name="item_name_label">Item Name: </string>
+    <string name="item_name">Name the item </string>
+    <string name="category_weight_label">% weight of final mark: </string>
+    <string name="category_weight">Enter % weight </string>
+    <string name="btn_new_item">New Course Item</string>
+    <string name="btn_add_item">Add Item</string>
+    <string name="btn_save">Save Course Details</string>
+    <string name="btn_cancel">Cancel</string>
+    <!-- end activity_course_details_screen -->
+
+
+
+
+
+
+
+    <string name="CoolFaceButton">coolFace</string>
+
+    <!--
+     templates Screen this is where the user can choose
+     to add a course with related fields for calculating marks
+    -->
+
+    <string name="button_edit_course">Edit</string>
+
+    <!-- <string name="title_course_add">addCourse</string> -->
+    <!-- end Add Course Screen -->
+
+
+    <!--
+    Chart Screen this is where the user can a chart
+    of his or her marks
+    -->
     <string name="title_activity_charts_screen">Chart</string>
-    <string name="charts">Chart</string><!--button on homepage-->
 
-    <!--end Chart screen-->
 
-    <!-- Priority Screen where the user can view
+
+    <!-- end Chart screen -->
+
+
+    <!--
+    Priority Screen where the user can view
     priorities to study for.  this activity is currently not connected
-    to the home page-->
+    to the home page
+    -->
     <string name="title_activity_markulate_screen">Markulate!!!</string>
-    <string name="markulate">Markulate</string> <!--button on homepage-->
-    <!--View Details Screen where the user can view details of their marks.
-      this activity is currently not connected
-    to the home page-->
-    <string name="title_activity_input_marks_screen">Input Marks</string>
-    <string name="inputMarks">Input Marks</string> <!--button on homepage-->
-    <string name="inputMarksScreenButton">Input Mark</string> <!--button on input-marks-screen-->
-    <!--end View Details Screen-->
 
-    <!--edit_course_detail-->
+    <!--
+    View Details Screen where the user can view details of their marks.
+      this activity is currently not connected
+    to the home page
+    -->
+    <string name="title_activity_input_marks_screen">Input Marks</string>
+
+    <string name="inputMarksScreenButton">Input Mark</string> <!-- button on input-marks-screen -->
+    <!-- end View Details Screen -->
+
+
+    <!-- edit_course_detail -->
     <string name="title_activity_edit_course_details_screen">Edit a Course</string>
     <string name="courseName">Enter Course Name:</string>
     <string name="category">Category:</string>
     <string name="categoryWeight">Weight(%):</string>
     <string name="itemName">Item:</string>
-
     <string name="edit_course_name">Course Name</string>
     <string name="edit_category">Select Category</string>
     <string name="edit_categoryWeight">Enter Weight</string>
@@ -62,6 +105,9 @@
         <item>Exam</item>
         <item>Other</item>
     </string-array>
-    <!--end activity_add_activity-->
+    <!-- end activity_add_activity -->
+
+    <string name="hello_world">Hello world!</string>
+
 
 </resources>
