@@ -1,5 +1,7 @@
 package com.example.marculator.comp3717;
 
+import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,16 +19,16 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class CourseDetailsActivity extends ActionBarActivity {
+public class CourseDetailsActivity extends ListActivity {
 
     TextView itemNameLabel, weightLabel, categoryLabel;
     EditText courseName, itemName, weight;
     Course myCourse;
     Spinner mySpinner;
-    private static final String[]paths = {"Quiz", "Assignment", "Lab", "Exam","Other"};
+    private static final String[] paths = {"Quiz", "Assignment", "Lab", "Exam","Other"};
     Item myItem;
     ArrayList<Item> items = new ArrayList<Item>();
-
+    ArrayList<String> itemsNames = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,15 @@ public class CourseDetailsActivity extends ActionBarActivity {
         //Creating an adapter so the user can select the category for his item
         mySpinner = (Spinner) findViewById(R.id.category);
 
+
+        //listview code
+        //ListView listView = getListView();
+        //listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        //listView.setTextFilterEnabled(true);
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,paths));
+    }
+    public void onListItemClick(ListView parent, View v, int position, long id){
+        Toast.makeText(this, "you have selected"+ paths[position], Toast.LENGTH_SHORT).show();
     }
  /*   public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 
@@ -116,6 +128,7 @@ public class CourseDetailsActivity extends ActionBarActivity {
 
         if(items.add(myItem)) {
             for(int i=0; i<items.size(); i++) {
+                itemsNames.add(myItem.getItemName());
                 Item temp = items.get(i);
                 Toast.makeText(getBaseContext(), temp.getCategory(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(getBaseContext(), temp.getItemName(), Toast.LENGTH_SHORT).show();
