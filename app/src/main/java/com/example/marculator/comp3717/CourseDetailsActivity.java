@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -29,6 +30,7 @@ public class CourseDetailsActivity extends ListActivity {
     Item myItem;
     ArrayList<Item> items = new ArrayList<Item>();
     ArrayList<String> itemsNames = new ArrayList<String>();
+    Button btnAddItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,13 +141,12 @@ public class CourseDetailsActivity extends ListActivity {
         setItemVisibilityOff();
     }
     public void onListItemClick(ListView parent, View v, int position, long id){
-        Toast.makeText(this, "you have selected"+ itemsNames.get(position), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "you have selected "+ itemsNames.get(position), Toast.LENGTH_SHORT).show();
     }
 
     public void detailsAdded(View v){
         Intent i = new Intent();
         myCourse.setCourseName(courseName.getText().toString());
-
         i.putExtra("myCourseUpdated",myCourse);
         setResult(RESULT_OK, i);
         finish();
@@ -181,6 +182,7 @@ public class CourseDetailsActivity extends ListActivity {
         mySpinner.setVisibility(View.VISIBLE);
         itemName.setVisibility(View.VISIBLE);
         weight.setVisibility(View.VISIBLE);
+        btnAddItem.setVisibility(View.VISIBLE);
     }
     private void setItemVisibilityOff(){
         categoryLabel.setVisibility(View.GONE);
@@ -189,6 +191,7 @@ public class CourseDetailsActivity extends ListActivity {
         mySpinner.setVisibility(View.GONE);
         itemName.setVisibility(View.GONE);
         weight.setVisibility(View.GONE);
+        btnAddItem.setVisibility(View.GONE);
     }
     public void mapToIds(){
         courseName = (EditText)findViewById(R.id.course_name);
@@ -198,6 +201,7 @@ public class CourseDetailsActivity extends ListActivity {
         mySpinner = (Spinner)findViewById(R.id.category);
         itemName = (EditText)findViewById(R.id.item_name);
         weight = (EditText)findViewById(R.id.category_weight);
+        btnAddItem = (Button)findViewById(R.id.btn_add_item);
         setItemVisibilityOff();
     }
 }
