@@ -4,7 +4,7 @@ import android.widget.Button;
 
 import java.io.Serializable;
 import java.util.ArrayList;
- 
+
 public class Course implements Serializable {
     private String courseName = "";
     private String category = "";
