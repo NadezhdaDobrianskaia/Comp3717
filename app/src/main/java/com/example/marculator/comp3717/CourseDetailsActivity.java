@@ -137,6 +137,7 @@ public class CourseDetailsActivity extends ListActivity {
         else{
             itemsNames.set(editing, myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
             items.set(editing,myItem);
+            editing = -1;
         }
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames));
         setItemVisibilityOff();
