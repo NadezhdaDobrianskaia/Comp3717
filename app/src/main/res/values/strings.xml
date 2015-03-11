@@ -36,67 +36,11 @@
     <string name="btn_cancel">Cancel</string>
     <!-- end activity_course_details_screen -->
 
-
-
-
-
-
-
-    <string name="CoolFaceButton">coolFace</string>
-
-    <!--
-     templates Screen this is where the user can choose
-     to add a course with related fields for calculating marks
-    -->
-
-    <string name="button_edit_course">Edit</string>
-
-    <!-- <string name="title_course_add">addCourse</string> -->
-    <!-- end Add Course Screen -->
-
-
-    <!--
-    Chart Screen this is where the user can a chart
-    of his or her marks
-    -->
-    <string name="title_activity_charts_screen">Chart</string>
-
-
-
-    <!-- end Chart screen -->
-
-
-    <!--
-    Priority Screen where the user can view
-    priorities to study for.  this activity is currently not connected
-    to the home page
-    -->
-    <string name="title_activity_markulate_screen">Markulate!!!</string>
-
-    <!--
-    View Details Screen where the user can view details of their marks.
-      this activity is currently not connected
-    to the home page
-    -->
     <string name="title_activity_input_marks_screen">Input Marks</string>
+    <string name="category">Input Marks</string>
+    <string name="button_edit_course">Input Marks</string>
 
     <string name="inputMarksScreenButton">Input Mark</string> <!-- button on input-marks-screen -->
-    <!-- end View Details Screen -->
-
-
-    <!-- edit_course_detail -->
-    <string name="title_activity_edit_course_details_screen">Edit a Course</string>
-    <string name="courseName">Enter Course Name:</string>
-    <string name="category">Category:</string>
-    <string name="categoryWeight">Weight(%):</string>
-    <string name="itemName">Item:</string>
-    <string name="edit_course_name">Course Name</string>
-    <string name="edit_category">Select Category</string>
-    <string name="edit_categoryWeight">Enter Weight</string>
-    <string name="edit_itemName">Enter Item Name</string>
-    <string name="button_cancel_add_activity">Cancel</string>
-    <string name="button_save_activity">Save</string>
-    <string name="button_add_newItem">New Item</string>
 
     <string-array name="category_list">
         <item>Quiz</item>
@@ -105,9 +49,10 @@
         <item>Exam</item>
         <item>Other</item>
     </string-array>
-    <!-- end activity_add_activity -->
 
-    <string name="hello_world">Hello world!</string>
+
+
+
 
 
 </resources>
