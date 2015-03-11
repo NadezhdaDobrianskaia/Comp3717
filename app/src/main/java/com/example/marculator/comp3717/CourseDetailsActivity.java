@@ -44,9 +44,9 @@ public class CourseDetailsActivity extends ListActivity {
 
 
         //listview code
-        //ListView listView = getListView();
-        //listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        //listView.setTextFilterEnabled(true);
+        ListView listView = getListView();
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        listView.setTextFilterEnabled(true);
 
     }
 
@@ -127,13 +127,10 @@ public class CourseDetailsActivity extends ListActivity {
         myItem.setWeight(Double.parseDouble(weight.getText().toString()));
 
         if(items.add(myItem)) {
-            itemsNames.add(myItem.getItemName());
+            itemsNames.add(myItem.getCategory() +"    " + myItem.getItemName() + "    " + myItem.getWeight());
             for(int i=0; i<items.size(); i++) {
                 Item temp = items.get(i);
                 Toast.makeText(getBaseContext(), temp.getCategory(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getBaseContext(), temp.getItemName(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getBaseContext(), itemsNames.get(i), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getBaseContext(), temp.getWeight().toString(), Toast.LENGTH_SHORT).show();
             }
         }
 
