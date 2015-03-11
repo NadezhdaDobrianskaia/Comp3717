@@ -125,19 +125,29 @@ public class CourseDetailsActivity extends ListActivity {
     public void addItem(View v){
         myItem.setItemName(itemName.getText().toString());
         myItem.setWeight(Double.parseDouble(weight.getText().toString()));
-
-        if(items.add(myItem)) {
-            itemsNames.add(myItem.getCategory() +"    " + myItem.getItemName() + "    " + myItem.getWeight());
-            for(int i=0; i<items.size(); i++) {
-                Item temp = items.get(i);
-                Toast.makeText(getBaseContext(), temp.getCategory(), Toast.LENGTH_SHORT).show();
+        if(editing == -1) {
+            if (items.add(myItem)) {
+                itemsNames.add(myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
+                for (int i = 0; i < items.size(); i++) {
+                    Item temp = items.get(i);
+                    Toast.makeText(getBaseContext(), temp.getCategory(), Toast.LENGTH_SHORT).show();
+                }
             }
         }
-
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,itemsNames));
+        else{
+            itemsNames.set(editing, myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
+            items.set(editing,myItem);
+        }
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames));
         setItemVisibilityOff();
+
     }
+    int editing = -1;
     public void onListItemClick(ListView parent, View v, int position, long id){
+        editing = position;
+        setItemVisibilityOn();
+        itemName.setText(items.get(position).getItemName());
+        weight.setText(items.get(position).getWeightString());
         Toast.makeText(this, "you have selected "+ itemsNames.get(position), Toast.LENGTH_SHORT).show();
     }
 

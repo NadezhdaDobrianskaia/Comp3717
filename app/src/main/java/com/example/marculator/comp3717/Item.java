@@ -43,4 +43,8 @@ public class Item implements Serializable {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+    public String getWeightString(){
+        String str = String.valueOf(weight);
+        return str;
+    }
 }
