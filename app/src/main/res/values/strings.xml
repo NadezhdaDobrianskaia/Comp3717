@@ -5,27 +5,26 @@
     <string name="action_settings">W?????????</string>
 
     <!-- activity_main (Home) Screen -->
-    <string name="markulator">Markulator</string>
+    <string name="marculator">Marculator</string>
     <string name="templates">Templates</string>
     <string name="charts">Summary</string>
-    <string name="inputMarks">Imput Marks</string>
-    <string name="markulate">MARCULATE</string>
+    <string name="inputMarks">Input Marks</string>
+    <string name="marculate">MARCULATE</string>
     <!-- end activity_main (Home) Screen -->
 
     <string name="title_activity_templates_screen">templatesScreen</string>
-    <!-- activity_templates_screen -->
+    <!-- activity_templates -->
     <string name="button_add_course">Add</string>
     <string name="button_delete_course">Delete</string>
     <string name="button_import_course">Import</string>
     <string name="button_export_course">Export</string>
-    <!-- end activity_templates_screen -->
+    <!-- end activity_templates -->
 
     <string name="title_activity_course_details_screen">courseDetailsScreen</string>
-    <!-- activity_course_details_screen -->
+    <!-- activity_course_details -->
     <string name="course_name_label">Course: </string>
     <string name="course_name">Enter Course Name</string>
     <string name="category_label">Category: </string>
-
     <string name="item_name_label">Item Name: </string>
     <string name="item_name">Name the item </string>
     <string name="category_weight_label">% weight of final mark: </string>
@@ -34,13 +33,7 @@
     <string name="btn_add_item">Add Item</string>
     <string name="btn_save">Save Course Details</string>
     <string name="btn_cancel">Cancel</string>
-    <!-- end activity_course_details_screen -->
-
-
-
-
-
-
+    <!-- end activity_course_details -->
 
     <string name="CoolFaceButton">coolFace</string>
 
@@ -61,8 +54,6 @@
     -->
     <string name="title_activity_charts_screen">Chart</string>
 
-
-
     <!-- end Chart screen -->
 
 
@@ -71,7 +62,7 @@
     priorities to study for.  this activity is currently not connected
     to the home page
     -->
-    <string name="title_activity_markulate_screen">Markulate!!!</string>
+    <string name="title_activity_marculate_screen">Marculate!!!</string>
 
     <!--
     View Details Screen where the user can view details of their marks.
@@ -79,13 +70,13 @@
     to the home page
     -->
     <string name="title_activity_input_marks_screen">Input Marks</string>
-
     <string name="inputMarksScreenButton">Input Mark</string> <!-- button on input-marks-screen -->
     <!-- end View Details Screen -->
 
 
     <!-- edit_course_detail -->
     <string name="title_activity_edit_course_details_screen">Edit a Course</string>
+    <string name="course_marks_label">Course Marks: </string>
     <string name="courseName">Enter Course Name:</string>
     <string name="category">Category:</string>
     <string name="categoryWeight">Weight(%):</string>
@@ -108,6 +99,7 @@
     <!-- end activity_add_activity -->
 
     <string name="hello_world">Hello world!</string>
-
+    <string name="title_activity_marculator">MarculatorActivity</string>
+    <string name="title_activity_charts">ChartsActivity</string>
 
 </resources>

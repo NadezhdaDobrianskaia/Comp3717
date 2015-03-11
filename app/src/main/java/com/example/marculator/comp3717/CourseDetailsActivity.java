@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class courseDetailsScreen extends ActionBarActivity {
+public class CourseDetailsActivity extends ActionBarActivity {
 
     TextView itemNameLabel, weightLabel, categoryLabel;
     EditText courseName, itemName, weight;
@@ -26,7 +26,7 @@ public class courseDetailsScreen extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course_details_screen);
+        setContentView(R.layout.activity_course_details);
         mapToIds();     //method to map all ids to the view types
         Intent i = getIntent();
         myCourse = (Course)i.getSerializableExtra("myCourse");

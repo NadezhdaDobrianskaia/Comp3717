@@ -26,14 +26,10 @@
          to add a course with related fields for marcks calculations
         -->
         <activity
-            android:name=".templatesScreen"
+            android:name=".TemplatesActivity"
             android:label="@string/title_activity_templates_screen" >
         </activity>
-
 >
-
-
-
 
         <!--
         View Details Screen where the user can view
@@ -41,13 +37,20 @@
         to the home page
         -->
         <activity
-            android:name=".inputMarksScreen"
+            android:name=".InputMarksActivity"
             android:label="@string/title_activity_input_marks_screen" >
         </activity>
-
         <activity
-            android:name=".courseDetailsScreen"
+            android:name=".CourseDetailsActivity"
             android:label="@string/title_activity_course_details_screen" >
+        </activity>
+        <activity
+            android:name=".MarculateActivity"
+            android:label="@string/title_activity_marculator" >
+        </activity>
+        <activity
+            android:name=".ChartsActivity"
+            android:label="@string/title_activity_charts" >
         </activity>
     </application>
 

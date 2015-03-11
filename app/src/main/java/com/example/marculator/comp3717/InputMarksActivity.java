@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 
 
-public class inputMarksScreen extends Activity {
+public class InputMarksActivity extends Activity {
 
     //public static String val;
 
@@ -29,7 +29,7 @@ public class inputMarksScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input_marks_screen);
+        setContentView(R.layout.activity_input_marks);
 
         //course1 = (TextView)findViewById(R.id.textView_course);
         //course1Name = course1.getText().toString();

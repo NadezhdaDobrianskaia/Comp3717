@@ -9,7 +9,7 @@
     android:background="@drawable/blue_background"
     android:id="@+id/markulator">
 
-    <TextView android:text="@string/markulator" android:layout_width="wrap_content"
+    <TextView android:text="@string/marculator" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textColor="#ffffffff"
@@ -19,8 +19,8 @@
 
     <!--Marculate Button-->
     <Button
-        android:id="@+id/buttonHomeMarkulate"
-        android:text="@string/markulate"
+        android:id="@+id/buttonHomeMarculate"
+        android:text="@string/marculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -28,7 +28,7 @@
         android:layout_above="@+id/buttonHomeImputMarks"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="markulate_screen"/>
+        android:onClick="marculate_activity"/>
 
     <!--Summary button-->
     <Button
@@ -40,7 +40,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="35dp"
-        android:onClick="charts_screen"/>
+        android:onClick="charts_activity"/>
 
     <!--ImputMarks button-->
     <Button
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="imput_marks_screen"/>
+        android:onClick="input_marks_activity"/>
 
 
     <!-- templates set up courses button-->
@@ -63,7 +63,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="32dp"
-        android:onClick="templates_screen"
+        android:onClick="templates_activity"
         />
 
 </RelativeLayout>

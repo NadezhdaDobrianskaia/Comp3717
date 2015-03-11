@@ -9,13 +9,13 @@ import android.view.View;
 import android.widget.Toast;
 
 
-public class templatesScreen extends ActionBarActivity {
+public class TemplatesActivity extends ActionBarActivity {
 
     Course myCourse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_templates_screen);
+        setContentView(R.layout.activity_templates);
     }
 
 
@@ -43,7 +43,7 @@ public class templatesScreen extends ActionBarActivity {
 
     public void add_course_details(View view){
         Toast.makeText(getBaseContext(), "Add is Called", Toast.LENGTH_SHORT).show();
-        Intent courseDetails = new Intent(this,courseDetailsScreen.class);
+        Intent courseDetails = new Intent(this,CourseDetailsActivity.class);
         myCourse = new Course("Big");
         Toast.makeText(getBaseContext(), myCourse.getCourseName(), Toast.LENGTH_SHORT).show();
         courseDetails.putExtra("myCourse",myCourse);
