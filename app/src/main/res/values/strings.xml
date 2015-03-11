@@ -39,7 +39,6 @@
     <string name="title_activity_input_marks_screen">Input Marks</string>
     <string name="category">Input Marks</string>
     <string name="button_edit_course">Input Marks</string>
-
     <string name="inputMarksScreenButton">Input Mark</string> <!-- button on input-marks-screen -->
 
     <string-array name="category_list">
@@ -49,10 +48,5 @@
         <item>Exam</item>
         <item>Other</item>
     </string-array>
-
-
-
-
-
 
 </resources>

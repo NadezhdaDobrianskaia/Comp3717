@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,6 +32,11 @@ public class courseDetailsScreen extends ActionBarActivity {
         Intent i = getIntent();
         myCourse = (Course)i.getSerializableExtra("myCourse");
         setCourse();
+        //Creating an adapter so the user can select the category for his item
+        mySpinner = (Spinner) findViewById(R.id.category);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
+        mySpinner.setAdapter(adapter);
+        //mySpinner.setOnItemSelectedListener(this);
     }
 
     protected void setCourse(){
