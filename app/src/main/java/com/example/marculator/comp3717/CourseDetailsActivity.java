@@ -47,9 +47,7 @@ public class CourseDetailsActivity extends ListActivity {
         //listView.setTextFilterEnabled(true);
 
     }
-    public void onListItemClick(ListView parent, View v, int position, long id){
-        Toast.makeText(this, "you have selected"+ paths[position], Toast.LENGTH_SHORT).show();
-    }
+
  /*   public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 
         switch (position) {
@@ -139,6 +137,9 @@ public class CourseDetailsActivity extends ListActivity {
 
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,itemsNames));
         setItemVisibilityOff();
+    }
+    public void onListItemClick(ListView parent, View v, int position, long id){
+        Toast.makeText(this, "you have selected"+ itemsNames.get(position), Toast.LENGTH_SHORT).show();
     }
 
     public void detailsAdded(View v){
