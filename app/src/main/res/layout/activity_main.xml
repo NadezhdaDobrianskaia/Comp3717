@@ -15,52 +15,54 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="53dp" />
 
-    <!--add Course button-->
-    <Button
-        android:id="@+id/buttonHomeAddCourse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/templates"
-        android:clickable="true"
-        android:onClick="addCourseScreenButton"
-        android:layout_marginBottom="36dp"
-        android:layout_above="@+id/buttonHomeViewDetails"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <!--charts button-->
-    <Button
-        android:id="@+id/buttonHomeCharts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/charts"
-        android:onClick="chartsScreen"
-        android:layout_below="@+id/buttonHomeViewDetails"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="35dp" />
-
-    <!--view details button-->
-    <Button
-        android:id="@+id/buttonHomeViewDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/inputMarks"
-        android:onClick="viewDetailsScreen"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-
-    <!-- priority item button-->
+    <!--Marculate Button-->
     <Button
         android:id="@+id/buttonHomeMarkulate"
+        android:text="@string/markulate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/markulate"
-        android:onClick="markulateScreen"
+        android:clickable="true"
+        android:layout_marginBottom="36dp"
+        android:layout_above="@+id/buttonHomeImputMarks"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="markulate_screen"/>
+
+    <!--Summary button-->
+    <Button
+        android:id="@+id/buttonHomeCharts"
+        android:text="@string/charts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonHomeImputMarks"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:onClick="charts_screen"/>
+
+    <!--ImputMarks button-->
+    <Button
+        android:id="@+id/buttonHomeImputMarks"
+        android:text="@string/inputMarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="imput_marks_screen"/>
+
+
+    <!-- templates set up courses button-->
+    <Button
+        android:id="@+id/buttonHomeTemplates"
+        android:text="@string/templates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/buttonHomeCharts"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="32dp"
+        android:onClick="templates_screen"
+        />
 
 </RelativeLayout>
+
