@@ -22,19 +22,10 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView_course"
-                android:text="Random Course"
+            <ListView
+                android:id = "@+id/android:list"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"/>
-            <Button
-                android:id="@+id/templates_editBtn_course"
-                android:text="Edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick=""
-                android:singleLine="true" />
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 

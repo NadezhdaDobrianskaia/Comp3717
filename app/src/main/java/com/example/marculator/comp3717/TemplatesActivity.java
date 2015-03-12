@@ -1,24 +1,33 @@
 package com.example.marculator.comp3717;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
-public class TemplatesActivity extends ActionBarActivity {
+public class TemplatesActivity extends ListActivity {
 
     Course myCourse;
+    ArrayList<String> display = new ArrayList<String>();
+    ArrayList<Course> courseList = new ArrayList<Course>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_templates);
+        ListView listView = getListView();
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        listView.setTextFilterEnabled(true);
+
     }
 
 
@@ -45,27 +54,46 @@ public class TemplatesActivity extends ActionBarActivity {
     }
 
     public void add_course_details(View view) {
-        Toast.makeText(getBaseContext(), "Add is Called", Toast.LENGTH_SHORT).show();
         Intent courseDetails = new Intent(this, CourseDetailsActivity.class);
         myCourse = new Course();
-        Toast.makeText(getBaseContext(), myCourse.getCourseName(), Toast.LENGTH_SHORT).show();
         courseDetails.putExtra("myCourse", myCourse);
         startActivityForResult(courseDetails, 1);
 
     }
+    int editing = -1;
+    public void onListItemClick(ListView parent, View v, int position, long id){
+        editing = position;
+        Intent courseDetails = new Intent(this, CourseDetailsActivity.class);
+        myCourse = courseList.get(position);
 
+        courseDetails.putExtra("myCourse", myCourse);
+        startActivityForResult(courseDetails, 2);
+
+    }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == 1) {
                 myCourse = (Course) data.getSerializableExtra("myCourseUpdated");
-                Toast.makeText(getBaseContext(), myCourse.getCourseName(), Toast.LENGTH_SHORT).show();
+
                 ArrayList<Item> temp = myCourse.getItems();
                 for (int i = 0; i < temp.size(); i++) {
                     //Item temp = (myCourse.getItems()).get(i);
                     Item temp2 = temp.get(i);
                     Toast.makeText(getBaseContext(), temp2.getCategory(), Toast.LENGTH_SHORT).show();
                 }
+                display.add(myCourse.getCourseName());
+                courseList.add(myCourse);
+
             }
+            if(requestCode == 2){
+                if(editing != -1) {
+                    myCourse = (Course) data.getSerializableExtra("myCourseUpdated");
+                    display.set(editing, myCourse.getCourseName());
+                    courseList.set(editing, myCourse);
+                    editing = -1;
+                }
+            }
+            setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, display));
         }
 
 
