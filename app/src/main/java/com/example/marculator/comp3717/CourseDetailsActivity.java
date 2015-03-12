@@ -19,6 +19,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+//start of two items in a list
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.widget.SimpleAdapter;
 
 public class CourseDetailsActivity extends ListActivity {
 
@@ -28,7 +35,7 @@ public class CourseDetailsActivity extends ListActivity {
     Spinner mySpinner;
     private static final String[] paths = {"Quiz", "Assignment", "Lab", "Exam","Other"};
     Item myItem;
-    ArrayList<Item> items = new ArrayList<Item>();
+    ArrayList<Item> items;//"change" = new ArrayList<Item>();
     ArrayList<String> itemsNames = new ArrayList<String>();
     Button btnAddItem;
     @Override
@@ -48,7 +55,9 @@ public class CourseDetailsActivity extends ListActivity {
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setTextFilterEnabled(true);
 
+
     }
+  //end play
 
  /*   public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 
@@ -126,23 +135,41 @@ public class CourseDetailsActivity extends ListActivity {
         myItem.setItemName(itemName.getText().toString());
         myItem.setWeight(Double.parseDouble(weight.getText().toString()));
         if(editing == -1) {
-            if (items.add(myItem)) {
-                itemsNames.add(myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
-                for (int i = 0; i < items.size(); i++) {
-                    Item temp = items.get(i);
-                    Toast.makeText(getBaseContext(), temp.getCategory(), Toast.LENGTH_SHORT).show();
-                }
+            if (myCourse.addCourseArrayList(myItem)) {
+               itemsNames.add(myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());  //this is for the string list
             }
         }
         else{
             itemsNames.set(editing, myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
-            items.set(editing,myItem);
+            myCourse.editCourseArrayList(editing,myItem);
             editing = -1;
         }
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames));
+        //double list
+     /*   list = buildData();
+        String[] from = { "name", "weight" };
+        int[] to = { android.R.id.text1, android.R.id.text2 };
+        SimpleAdapter adapter = new SimpleAdapter(this, list,android.R.layout.simple_list_item_2, from, to);
+        setListAdapter(adapter);
+    */
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames)); //this is for the string list
         setItemVisibilityOff();
-
     }
+    /* double list continued
+    ArrayList<Map<String, String>> list =new ArrayList<Map<String, String>>();
+    private ArrayList<Map<String, String>> buildData() {
+        list.add(putData(myItem.getItemName(), myItem.getWeightString()));
+        return list;
+    }
+
+    private HashMap<String, String> putData(String name, String purpose) {
+        HashMap<String, String> item = new HashMap<String, String>();
+        item.put("name", name);
+        item.put("weight", purpose);
+        return item;
+    }
+    */
+
+
     int editing = -1;
     public void onListItemClick(ListView parent, View v, int position, long id){
         editing = position;

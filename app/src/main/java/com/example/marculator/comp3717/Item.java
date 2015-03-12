@@ -9,7 +9,7 @@ public class Item implements Serializable {
     private double weight;
 
     //constructor
-    public Item(String itemName, String category, double weight){
+    public Item(String category,String itemName , double weight){
         this.itemName = itemName;
         this.category = category;
         this.weight = weight;

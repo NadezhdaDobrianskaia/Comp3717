@@ -8,10 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class TemplatesActivity extends ActionBarActivity {
 
     Course myCourse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,28 +44,30 @@ public class TemplatesActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void add_course_details(View view){
+    public void add_course_details(View view) {
         Toast.makeText(getBaseContext(), "Add is Called", Toast.LENGTH_SHORT).show();
-        Intent courseDetails = new Intent(this,CourseDetailsActivity.class);
-        myCourse = new Course("Big");
+        Intent courseDetails = new Intent(this, CourseDetailsActivity.class);
+        myCourse = new Course();
         Toast.makeText(getBaseContext(), myCourse.getCourseName(), Toast.LENGTH_SHORT).show();
-        courseDetails.putExtra("myCourse",myCourse);
+        courseDetails.putExtra("myCourse", myCourse);
         startActivityForResult(courseDetails, 1);
 
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(resultCode == RESULT_OK){
-            if(requestCode == 1){
-                myCourse = (Course)data.getSerializableExtra("myCourseUpdated");
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                myCourse = (Course) data.getSerializableExtra("myCourseUpdated");
                 Toast.makeText(getBaseContext(), myCourse.getCourseName(), Toast.LENGTH_SHORT).show();
+                ArrayList<Item> temp = myCourse.getItems();
+                for (int i = 0; i < temp.size(); i++) {
+                    //Item temp = (myCourse.getItems()).get(i);
+                    Item temp2 = temp.get(i);
+                    Toast.makeText(getBaseContext(), temp2.getCategory(), Toast.LENGTH_SHORT).show();
+                }
             }
         }
+
+
     }
-
-
-
-
-
-
 }
