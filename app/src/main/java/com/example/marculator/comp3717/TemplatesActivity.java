@@ -72,22 +72,22 @@ public class TemplatesActivity extends ListActivity {
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
+            myCourse = (Course) data.getSerializableExtra("myCourseUpdated");
             if (requestCode == 1) {
-                myCourse = (Course) data.getSerializableExtra("myCourseUpdated");
-
-                ArrayList<Item> temp = myCourse.getItems();
+                courseList.add(myCourse);
+                display.add(myCourse.getCourseName());
+                /*ArrayList<Item> temp = myCourse.getItems();
                 for (int i = 0; i < temp.size(); i++) {
                     //Item temp = (myCourse.getItems()).get(i);
                     Item temp2 = temp.get(i);
                     Toast.makeText(getBaseContext(), temp2.getCategory(), Toast.LENGTH_SHORT).show();
-                }
-                display.add(myCourse.getCourseName());
-                courseList.add(myCourse);
+                }*/
+
+
 
             }
             if(requestCode == 2){
                 if(editing != -1) {
-                    myCourse = (Course) data.getSerializableExtra("myCourseUpdated");
                     display.set(editing, myCourse.getCourseName());
                     courseList.set(editing, myCourse);
                     editing = -1;

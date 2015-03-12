@@ -130,6 +130,8 @@ public class CourseDetailsActivity extends ListActivity {
             Toast.makeText(getBaseContext(), "I am editing item",Toast.LENGTH_LONG).show();
 
         }
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames)); //this is for the string list
+        setItemVisibilityOff();
         //double list
      /*   list = buildData();
         String[] from = { "name", "weight" };
@@ -137,8 +139,7 @@ public class CourseDetailsActivity extends ListActivity {
         SimpleAdapter adapter = new SimpleAdapter(this, list,android.R.layout.simple_list_item_2, from, to);
         setListAdapter(adapter);
     */
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames)); //this is for the string list
-        setItemVisibilityOff();
+
     }
     /* double list continued
     ArrayList<Map<String, String>> list =new ArrayList<Map<String, String>>();
@@ -163,7 +164,6 @@ public class CourseDetailsActivity extends ListActivity {
         newItem(v);
         itemName.setText(items.get(position).getItemName());
         weight.setText(items.get(position).getWeightString());
-        Toast.makeText(this, "you have selected "+ itemsNames.get(position), Toast.LENGTH_SHORT).show();
     }
 
     public void detailsAdded(View v){

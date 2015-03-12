@@ -61,7 +61,7 @@ public class Course implements Serializable {
         return false;
     }
     public void editCourseArrayList(int index, Item item){
-        Items.add(index, item);
+        Items.set(index, item);
     }
 
 
