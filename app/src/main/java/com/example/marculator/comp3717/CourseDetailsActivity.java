@@ -50,7 +50,7 @@ public class CourseDetailsActivity extends ListActivity {
         mySpinner = (Spinner) findViewById(R.id.category);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
         mySpinner.setAdapter(adapter);
-
+        mySpinner.setOnItemSelectedListener(spinnerListener);
         //listview code
         ListView listView = getListView();
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -109,11 +109,6 @@ public class CourseDetailsActivity extends ListActivity {
     public void newItem(View v){
         setItemVisibilityOn();
         myItem = new Item(itemName.getText().toString(), 0);
-        //ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(CourseDetailsActivity.this,
-        //        android.R.layout.simple_spinner_item,paths);
-        //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-       // mySpinner.setAdapter(adapter2);
-
         mySpinner.setOnItemSelectedListener(spinnerListener);
 
     }
@@ -165,7 +160,7 @@ public class CourseDetailsActivity extends ListActivity {
     public void onListItemClick(ListView parent, View v, int position, long id){
         editing = position;
         Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show();
-        setItemVisibilityOn();
+        newItem(v);
         itemName.setText(items.get(position).getItemName());
         weight.setText(items.get(position).getWeightString());
         Toast.makeText(this, "you have selected "+ itemsNames.get(position), Toast.LENGTH_SHORT).show();
