@@ -48,7 +48,8 @@ public class CourseDetailsActivity extends ListActivity {
         setCourse();
         //Creating an adapter so the user can select the category for his item
         mySpinner = (Spinner) findViewById(R.id.category);
-
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
+        mySpinner.setAdapter(adapter);
 
         //listview code
         ListView listView = getListView();
@@ -57,92 +58,82 @@ public class CourseDetailsActivity extends ListActivity {
 
 
     }
-  //end play
+    String categoryString = "";
+    private AdapterView.OnItemSelectedListener spinnerListener = new AdapterView.OnItemSelectedListener(){
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
- /*   public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-
-        switch (position) {
-            case 0:
-                // Whatever you want to happen when the first item gets selected
-                break;
-            case 1:
-                // Whatever you want to happen when the second item gets selected
-                break;
-            case 2:
-                // Whatever you want to happen when the thrid item gets selected
-                break;
-            case 3:
-                //whatever
-                break;
-            case 4:
-                //whatever;
-                break;
+            switch (position) {
+                case 0:
+                    myItem.setCategory("Quiz");
+                    categoryString = "Quiz";
+                    break;
+                case 1:
+                    myItem.setCategory("Assignment");
+                    categoryString = "Assignment";
+                    break;
+                case 2:
+                    myItem.setCategory("Lab");
+                    categoryString = "Lab";
+                    break;
+                case 3:
+                    myItem.setCategory("Exam");
+                    categoryString = "Exam";
+                    break;
+                case 4:
+                    myItem.setCategory("Other");
+                    categoryString = "Other";
+                    break;
+            }
         }
-    }
-*/
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
+
 
     protected void setCourse(){
         if(myCourse.getCourseName() != null)
             courseName.setText(myCourse.getCourseName());
-        if(myCourse.getItems() != null){
-            Toast.makeText(getBaseContext(), "I should get the list of items", Toast.LENGTH_SHORT).show();
+        items = myCourse.getItems();
+        for (int i = 0; i < items.size(); i++) {
+            Item temp = items.get(i);
+            itemsNames.add(temp.getCategory()+"     "+ temp.getItemName()+"     "+temp.getWeightString());
         }
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames));
     }
 
 
     public void newItem(View v){
         setItemVisibilityOn();
         myItem = new Item(itemName.getText().toString(), 0);
-        ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(CourseDetailsActivity.this,
-                android.R.layout.simple_spinner_item,paths);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(adapter2);
-        //com.example.marculator.comp3717.CourseDetailsActivity;
-        ;
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
-        mySpinner.setAdapter(adapter);
-        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(CourseDetailsActivity.this,
+        //        android.R.layout.simple_spinner_item,paths);
+        //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       // mySpinner.setAdapter(adapter2);
 
-                switch (position) {
-                    case 0:
-                        myItem.setCategory("Quiz");
-                        break;
-                    case 1:
-                        myItem.setCategory("Assignment");
-                        break;
-                    case 2:
-                        myItem.setCategory("Lab");
-                        break;
-                    case 3:
-                        myItem.setCategory("Exam");
-                        break;
-                    case 4:
-                        myItem.setCategory("Other");
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        mySpinner.setOnItemSelectedListener(spinnerListener);
 
     }
     public void addItem(View v){
+        myItem.setCategory(categoryString);
         myItem.setItemName(itemName.getText().toString());
         myItem.setWeight(Double.parseDouble(weight.getText().toString()));
+        Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show();
         if(editing == -1) {
             if (myCourse.addCourseArrayList(myItem)) {
                itemsNames.add(myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());  //this is for the string list
+                Toast.makeText(getBaseContext(), "I am adding item",Toast.LENGTH_LONG).show();
             }
         }
         else{
             itemsNames.set(editing, myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
             myCourse.editCourseArrayList(editing,myItem);
             editing = -1;
+            Toast.makeText(getBaseContext(), "I am editing item",Toast.LENGTH_LONG).show();
+
         }
         //double list
      /*   list = buildData();
@@ -173,6 +164,7 @@ public class CourseDetailsActivity extends ListActivity {
     int editing = -1;
     public void onListItemClick(ListView parent, View v, int position, long id){
         editing = position;
+        Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show();
         setItemVisibilityOn();
         itemName.setText(items.get(position).getItemName());
         weight.setText(items.get(position).getWeightString());
