@@ -55,11 +55,12 @@
                 android:onClick="add_course_details"/>
 
             <Button
-                android:text="@string/button_delete_course"
+                android:text="@string/button_save_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:onClick="save_data"/>
 
             <Button
                 android:text="@string/button_import_course"
@@ -67,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
-                android:onClick="import_course" />
+                android:onClick="load_data" />
             <Button
                 android:text="@string/button_export_course"
                 android:layout_width="wrap_content"
@@ -79,3 +80,4 @@
 
     </RelativeLayout>
 </RelativeLayout>
+
