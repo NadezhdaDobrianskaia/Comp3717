@@ -47,4 +47,6 @@ public class Item implements Serializable {
         String str = String.valueOf(weight);
         return str;
     }
+
+    public String ToString() { return itemName; }
 }

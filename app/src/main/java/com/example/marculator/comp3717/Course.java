@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Course implements Serializable {
     private String courseName = "";
-    private String category = "";
-    private Button editButton = null;
+    private String category = ""; //member not used for now
+    private Button editButton = null; //member not used for now
     private ArrayList<Item> Items = new ArrayList<Item>();
 
     //constructor called when add button is pressed without new Button
@@ -55,11 +55,13 @@ public class Course implements Serializable {
         return Items;
     }
 
+    // adds the item to the end of the array
     public boolean addCourseArrayList(Item item) {
         if(Items.add(item))
             return true;
         return false;
     }
+    // edits the item going by the position of the item in the existing array list
     public void editCourseArrayList(int index, Item item){
         Items.set(index, item);
     }

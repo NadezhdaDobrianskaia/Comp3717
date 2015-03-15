@@ -69,10 +69,15 @@
       this activity is currently not connected
     to the home page
     -->
-    <string name="title_activity_input_marks_screen">Input Marks</string>
-    <string name="inputMarksScreenButton">Input Mark</string> <!-- button on input-marks-screen -->
+
     <!-- end View Details Screen -->
 
+    <!-- button on input-marks-screen -->
+    <string name="title_activity_input_marks_screen">Input Marks</string>
+    <string name="inputMarksScreenButton">Input Mark</string>
+    <string name="label_item">Select Item:</string>
+    <string name="label_course">Select Course:</string>
+    <string name="label_mark">Type in your mark</string>
 
     <!-- edit_course_detail -->
     <string name="title_activity_edit_course_details_screen">Edit a Course</string>

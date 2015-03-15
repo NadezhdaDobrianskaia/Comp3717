@@ -62,6 +62,9 @@ public class TemplatesActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /// this method is one of the methods
+    /// responsible for initiating a new activity (the coursedetailsactivity)
+    /// the intent is built and the empty course item is passed over
     public void add_course_details(View view) {
         Intent courseDetails = new Intent(this, CourseDetailsActivity.class);
         myCourse = new Course();
@@ -69,17 +72,23 @@ public class TemplatesActivity extends ListActivity {
         startActivityForResult(courseDetails, 1);
 
     }
+
+    /// this method is one of the methods
+    /// responsible for initiating a new activity (the coursedetailsactivity)
+    /// the intent is built and the populated course object is passed over in it
     int editing = -1;
     public void onListItemClick(ListView parent, View v, int position, long id){
         editing = position;
         Intent courseDetails = new Intent(this, CourseDetailsActivity.class);
-        myCourse = courseList.get(position);
+        myCourse = courseList.get(position); // gets the course where the user clicked
 
         courseDetails.putExtra("myCourse", myCourse);
         startActivityForResult(courseDetails, 2);
 
     }
 
+    /// this method is triggered when user clicks Save button
+    // the data is saved to a file on their phone
     public void save_data(View v){
         try{
             FileOutputStream fOut = openFileOutput("dataList.bin",MODE_PRIVATE);
@@ -97,6 +106,9 @@ public class TemplatesActivity extends ListActivity {
             ioe.printStackTrace();
         }
     }
+
+    /// this method populates the activity with phone file data for courses
+    /// or displays nothing and the user can add all as needed
     public void loadData(){
         try {
             FileInputStream fIn = openFileInput("dataList.bin");
@@ -123,9 +135,15 @@ public class TemplatesActivity extends ListActivity {
         }
 
     }
+
+    /// this method is triggered when coming back from the coursedetails activity screen
+    /// it will take the intent the activity originally sent and unpackage it to get the changed
+    /// or new courseobject
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             myCourse = (Course) data.getSerializableExtra("myCourseUpdated");
+
+            /// if the user has added a course this gets called
             if (requestCode == 1) {
                 courseList.add(myCourse);
                 display.add(myCourse.getCourseName());
@@ -139,6 +157,8 @@ public class TemplatesActivity extends ListActivity {
 
 
             }
+
+            /// if the user has editing a course, this gets called
             if(requestCode == 2){
                 if(editing != -1) {
                     display.set(editing, myCourse.getCourseName());

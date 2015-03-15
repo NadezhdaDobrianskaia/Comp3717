@@ -31,13 +31,17 @@ public class CourseDetailsActivity extends ListActivity {
 
     TextView itemNameLabel, weightLabel, categoryLabel;
     EditText courseName, itemName, weight;
-    Course myCourse;
+    Course myCourse; /// a variable to hold the course that was passed over from the CourseDetails screen
     Spinner mySpinner;
     private static final String[] paths = {"Quiz", "Assignment", "Lab", "Exam","Other"};
     Item myItem;
     ArrayList<Item> items;//"change" = new ArrayList<Item>();
     ArrayList<String> itemsNames = new ArrayList<String>();
     Button btnAddItem;
+
+    /// this method is where the magic happens to populate a new course object
+    /// or edit the already-input course object
+    /// the intent is passed into the method and un-packaged to get the course object content
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +49,14 @@ public class CourseDetailsActivity extends ListActivity {
         mapToIds();     //method to map all ids to the view types
         Intent i = getIntent();
         myCourse = (Course)i.getSerializableExtra("myCourse");
+        /// begins to populate
         setCourse();
         //Creating an adapter so the user can select the category for his item
         mySpinner = (Spinner) findViewById(R.id.category);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
         mySpinner.setAdapter(adapter);
         mySpinner.setOnItemSelectedListener(spinnerListener);
-        //listview code
+        //the listview stores all the items that the user has added so far
         ListView listView = getListView();
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setTextFilterEnabled(true);
@@ -93,7 +98,10 @@ public class CourseDetailsActivity extends ListActivity {
         }
     };
 
-
+    /// this method either unwraps the Course object to get all the items,
+    /// or if it is a new course object (when user clicked add) -
+    /// this method will not add any items and will just set a list adapter
+    /// to hold the items when they come
     protected void setCourse(){
         if(myCourse.getCourseName() != null)
             courseName.setText(myCourse.getCourseName());
@@ -106,23 +114,32 @@ public class CourseDetailsActivity extends ListActivity {
     }
 
 
+    /// this method is triggered when the user clicks on "add item" button from the coursedetailsactivity
+    /// a new item will be made based on the user's choice
     public void newItem(View v){
-        setItemVisibilityOn();
+        setItemVisibilityOn(); // show fields for user to set their preferences on new item
         myItem = new Item(itemName.getText().toString(), 0);
         mySpinner.setOnItemSelectedListener(spinnerListener);
 
     }
+
+    /// this method is triggered when the user clicks "add" after setting their
+    /// preferences for the new item they want
+    /// it takes all user preferences and stores as an Item object, and puts into an array
     public void addItem(View v){
         myItem.setCategory(categoryString);
         myItem.setItemName(itemName.getText().toString());
         myItem.setWeight(Double.parseDouble(weight.getText().toString()));
-        Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show(); // testing
+
+        /// if the user wants to add, i.e. they have not made a choice by selecting from the list to edit
         if(editing == -1) {
             if (myCourse.addCourseArrayList(myItem)) {
                itemsNames.add(myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());  //this is for the string list
                 Toast.makeText(getBaseContext(), "I am adding item",Toast.LENGTH_LONG).show();
             }
         }
+        /// if the user wants to edit,
         else{
             itemsNames.set(editing, myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
             myCourse.editCourseArrayList(editing,myItem);
@@ -156,7 +173,7 @@ public class CourseDetailsActivity extends ListActivity {
     }
     */
 
-
+    /// this member will change based on the user's choice or non-choice on the item list
     int editing = -1;
     public void onListItemClick(ListView parent, View v, int position, long id){
         editing = position;
@@ -166,6 +183,8 @@ public class CourseDetailsActivity extends ListActivity {
         weight.setText(items.get(position).getWeightString());
     }
 
+    /// this method is triggered when the user has selected "Save" and wants to go back
+    /// to the courses screen (templatesactivity)
     public void detailsAdded(View v){
         Intent i = new Intent();
         myCourse.setCourseName(courseName.getText().toString());
@@ -197,6 +216,7 @@ public class CourseDetailsActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /// this method lets the user see their options when adding a new item
     private void setItemVisibilityOn(){
         categoryLabel.setVisibility(View.VISIBLE);
         itemNameLabel.setVisibility(View.VISIBLE);
@@ -206,6 +226,8 @@ public class CourseDetailsActivity extends ListActivity {
         weight.setVisibility(View.VISIBLE);
         btnAddItem.setVisibility(View.VISIBLE);
     }
+    /// this method keeps the screen cleaning by not right away displaying
+    /// options to set up a new item
     private void setItemVisibilityOff(){
         categoryLabel.setVisibility(View.GONE);
         itemNameLabel.setVisibility(View.GONE);
@@ -215,6 +237,8 @@ public class CourseDetailsActivity extends ListActivity {
         weight.setVisibility(View.GONE);
         btnAddItem.setVisibility(View.GONE);
     }
+
+    /// finds all elements in the xml and populates their handle to a class member
     public void mapToIds(){
         courseName = (EditText)findViewById(R.id.course_name);
         categoryLabel = (TextView)findViewById(R.id.category_label);
