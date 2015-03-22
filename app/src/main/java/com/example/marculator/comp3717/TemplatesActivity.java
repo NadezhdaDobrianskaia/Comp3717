@@ -1,10 +1,10 @@
 package com.example.marculator.comp3717;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,14 +12,26 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 
@@ -97,6 +109,7 @@ public class TemplatesActivity extends ListActivity {
             osw.flush();
             osw.close();
             Toast.makeText(getBaseContext(), "file Saved successfully", Toast.LENGTH_SHORT).show();
+            setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, display));
         }
         catch (FileNotFoundException e){
             Toast.makeText(getBaseContext(), "FileNotfound", Toast.LENGTH_SHORT).show();
@@ -105,6 +118,7 @@ public class TemplatesActivity extends ListActivity {
             Toast.makeText(getBaseContext(), "io", Toast.LENGTH_SHORT).show();
             ioe.printStackTrace();
         }
+
     }
 
     /// this method populates the activity with phone file data for courses
@@ -171,4 +185,121 @@ public class TemplatesActivity extends ListActivity {
 
 
     }
+
+
+//----------------------------------pulling from Mongo DB
+    int startInputCourse; //save the indes where the course was added
+    String importCourse;
+    public void load_data(View v){
+        new LoadCourse().execute("https://api.mongolab.com/api/1/databases/bcitcstnadiad/collections/LabMongodb?apiKey=OcEZk6lUN0M-oCQ7ej4gDKOaREvtkPXU");
+    }
+
+    public String readJSONFeed(String URL){
+        StringBuilder stringBuilder = new StringBuilder();
+        HttpClient client = new DefaultHttpClient();
+        HttpGet httpGet = new HttpGet(URL);
+        try{
+            HttpResponse response = client.execute(httpGet);
+            StatusLine statusLine = response.getStatusLine();
+            int statusCode = statusLine.getStatusCode();
+            if(statusCode == 200){
+                HttpEntity entity = response.getEntity();
+                InputStream content = entity.getContent();
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(content));
+                String line;
+                while((line=reader.readLine()) != null){
+                    stringBuilder.append(line);
+                }
+            }
+            else{
+                Log.e("JSON", "Failed to download file");
+            }
+        }
+        catch(ClientProtocolException e){
+            e.printStackTrace();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
+
+    private class LoadCourse extends AsyncTask<String, Void, String>{
+        protected String doInBackground(String... urls){
+            return readJSONFeed(urls[0]);
+        }
+        protected void onPostExecute(String result){
+            try{
+                JSONArray jsonArray = new JSONArray(result);
+                Log.i("JSON","number of surveys inFeed:" +
+                        jsonArray.length());
+                Toast.makeText(getBaseContext(), "The Changes were not wiped", Toast.LENGTH_SHORT).show();
+
+                startInputCourse =courseList.size();
+
+                //print out the content of the jsonFeed----
+                for(int i=0; i<jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                  //  Toast.makeText(getBaseContext(), jsonObject.getString("my_course") + "Start at " + startInputCourse, Toast.LENGTH_SHORT).show();
+                    Course temp = new Course();
+                    temp.setCourseName(jsonObject.getString("my_course"));
+                    courseList.add(temp);
+                    display.add(jsonObject.getString("my_course"));
+
+                }
+
+               // Toast.makeText(getBaseContext(), "Finish loading", Toast.LENGTH_SHORT).show();
+                importCourse = courseList.get(startInputCourse).getCourseName();
+                //Toast.makeText(getBaseContext(), startInputCourse + importCourse, Toast.LENGTH_SHORT).show();
+                new LoadItems().execute("https://api.mongolab.com/api/1/databases/bcitcstnadiad/collections/LabMongodb2?apiKey=OcEZk6lUN0M-oCQ7ej4gDKOaREvtkPXU");
+
+                displayList();
+            }
+            catch(JSONException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class LoadItems extends AsyncTask<String, Void, String>{
+        protected String doInBackground(String... urls){
+            return readJSONFeed(urls[0]);
+        }
+        protected void onPostExecute(String result){
+            try{
+                JSONArray jsonArray = new JSONArray(result);
+                Log.i("JSON","number of surveys inFeed:" +
+                        jsonArray.length());
+                //print out the content of the jsonFeed----
+                for(int i=0; i<jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                   if(jsonObject.getString("my_course").equals(importCourse)){
+
+                       Item myTempItem = new Item(jsonObject.getString("category"),jsonObject.getString("category_name"),Double.valueOf(jsonObject.getString("weight")).doubleValue());
+                       Course temp = courseList.get(startInputCourse);
+                       temp.getItems().add(myTempItem);
+                      // Toast.makeText(getBaseContext(), jsonObject.getString("category") + " Inside " + importCourse  , Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                startInputCourse +=1;
+                if(startInputCourse < courseList.size()) {
+                    importCourse = courseList.get(startInputCourse).getCourseName();
+                   // Toast.makeText(getBaseContext(), startInputCourse + importCourse, Toast.LENGTH_SHORT).show();
+                    new LoadItems().execute("https://api.mongolab.com/api/1/databases/bcitcstnadiad/collections/LabMongodb2?apiKey=OcEZk6lUN0M-oCQ7ej4gDKOaREvtkPXU");
+                }
+
+            }
+            catch(JSONException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void displayList(){
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, display));
+    }
+//-----------------------------------end pulling prom Mongo DB
 }

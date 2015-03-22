@@ -16,7 +16,7 @@
     <!-- activity_templates -->
     <string name="button_add_course">Add</string>
     <string name="button_delete_course">Delete</string>
-    <string name="button_save_course">Save</string>
+    <string name="button_save_course">Save Your Changes!!!</string>
     <string name="button_import_course">Import</string>
     <string name="button_export_course">Export</string>
     <!-- end activity_templates -->

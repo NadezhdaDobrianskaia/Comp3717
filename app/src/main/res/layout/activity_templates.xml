@@ -85,13 +85,6 @@
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:onClick="load_data" />
-                <Button
-                    android:text="@string/button_export_course"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="center_vertical"
-                    android:onClick="export_course" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
