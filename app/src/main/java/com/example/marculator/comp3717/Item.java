@@ -7,17 +7,28 @@ public class Item implements Serializable {
     private String itemName = "";
     private String category = "";
     private double weight;
+    private double myMark;
 
     //constructor
     public Item(String category,String itemName , double weight){
         this.itemName = itemName;
         this.category = category;
         this.weight = weight;
+        this.myMark = 0;
     }
     public Item(String itemName, double weight){
         this.itemName = itemName;
         this.category = null;
         this.weight = weight;
+        this.myMark = 0;
+    }
+
+    public double getMyMark() {
+        return myMark;
+    }
+
+    public void setMyMark(double myMark) {
+        this.myMark = myMark;
     }
 
     public String getCategory() {
