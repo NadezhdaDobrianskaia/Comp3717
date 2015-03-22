@@ -8,28 +8,40 @@
     tools:context="com.example.marculator.comp3717.InputMarksActivity"
     >
 
-    <TextView android:text="Name of Course"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-    <AutoCompleteTextView
-        android:id ="@+id/autoFillCourses"
+    <TextView android:text="@string/label_course"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spnCourses"
+        android:layout_column="1" />
+
     <TextView
-        android:id="@+id/edit_course_details_course_textViewCategoryLabel"
+        android:id="@+id/edit_course_details_course_textViewItemLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/category"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:text="@string/label_item"
         />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/categorySpinner"
+        android:id="@+id/spnItems"
         android:layout_column="1" />
+
+    <TextView
+        android:id="@+id/txtLabelMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_mark"
+        />
+
+    <EditText
+        android:id="@+id/edtInputMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:layout_width="wrap_content"
