@@ -51,6 +51,8 @@ public class CourseDetailsActivity extends ListActivity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.category_list, android.R.layout.simple_spinner_item);
         mySpinner.setAdapter(adapter);
         mySpinner.setOnItemSelectedListener(spinnerListener);
+
+
         //listview code
         ListView listView = getListView();
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -110,8 +112,9 @@ public class CourseDetailsActivity extends ListActivity {
         setItemVisibilityOn();
         myItem = new Item(itemName.getText().toString(), 0);
         mySpinner.setOnItemSelectedListener(spinnerListener);
-
     }
+
+
     public void addItem(View v){
         myItem.setCategory(categoryString);
         myItem.setItemName(itemName.getText().toString());
