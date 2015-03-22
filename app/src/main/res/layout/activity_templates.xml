@@ -35,49 +35,61 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom = "true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_weight="0.13"
-
-            android:id="@+id/controlLayout">
-
-            <!--add button to add a course-->
-            <Button
-
-                android:text="@string/button_add_course"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="1dp"
-                android:layout_gravity="center_vertical"
-                android:onClick="add_course_details"/>
-
+        >
             <Button
                 android:text="@string/button_save_course"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:onClick="save_data"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.13"
 
-            <Button
-                android:text="@string/button_import_course"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_vertical"
-                android:onClick="load_data" />
-            <Button
-                android:text="@string/button_export_course"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_vertical"
-                android:onClick="export_course" />
+                android:id="@+id/controlLayout">
+
+                <!--add button to add a course-->
+                <Button
+
+                    android:text="@string/button_add_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="add_course_details"/>
+
+                <Button
+                    android:text="@string/button_delete_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="delete_data"/>
+
+                <Button
+                    android:text="@string/button_import_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="load_data" />
+                <Button
+                    android:text="@string/button_export_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="export_course" />
+            </LinearLayout>
         </LinearLayout>
-
     </RelativeLayout>
 </RelativeLayout>
 
