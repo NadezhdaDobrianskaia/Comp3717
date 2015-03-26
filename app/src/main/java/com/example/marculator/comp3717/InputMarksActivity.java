@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -31,6 +32,15 @@ public class InputMarksActivity extends Activity {
     ArrayList<String> strItems = new ArrayList<>();
     /// all courses taken from phone data file
     ArrayList<Course> courseList = new ArrayList<Course>();
+    /// all courses taken from courselist
+    ArrayList<Item> itemList = new ArrayList<Item>();
+
+    /// all marks taken from phone data file
+    ArrayList<Item> marksList = new ArrayList<Item>();
+
+
+
+
 
     /// a handle to the spinner element
     Spinner courseNames;
@@ -41,6 +51,13 @@ public class InputMarksActivity extends Activity {
     // (it will be constantly updating if user changes the selection of the course in the spinner)
     Course MyCourse;
 
+    /// one item object
+    // (it will be constantly updating if user changes the selection of the course in the spinner)
+    Item MyItem;
+
+    // a handle to the item edit text
+    EditText item;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +66,8 @@ public class InputMarksActivity extends Activity {
         courseNames = (Spinner) findViewById(R.id.spnCourses);
         itemNames = (Spinner) findViewById(R.id.spnItems);
         loadCourseData();
+        loadMarksData();
+        item = (EditText) findViewById(R.id.edtInputMark);
 
     }
 
@@ -59,13 +78,29 @@ public class InputMarksActivity extends Activity {
     private AdapterView.OnItemSelectedListener courseNamesClickListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
             strItems.clear(); // reset the spinner items
             MyCourse = courseList.get(position);
             ArrayList<Item> temp = MyCourse.getItems();
             for(Item i : temp) {
                 strItems.add(i.ToString());
+                itemList.add(i);
             }
             loadItemData();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
+
+
+    /// this method is triggered when someone choose a spinner item for course item
+    private AdapterView.OnItemSelectedListener itemNamesClickListener = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            MyItem = itemList.get(position);
         }
 
         @Override
@@ -78,6 +113,7 @@ public class InputMarksActivity extends Activity {
     public void loadItemData() {
         ArrayAdapter adapterSpinnerItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strItems);
         itemNames.setAdapter(adapterSpinnerItems);
+        itemNames.setOnItemSelectedListener(itemNamesClickListener);
     }
 
 
@@ -108,10 +144,15 @@ public class InputMarksActivity extends Activity {
     /// this method is triggered when user clicks Input Marks button THIS IS NOT IMPLEMENTED YET
     // the data is saved to a file on their phone
     public void save_data(View v){
+        String mark = item.getText().toString();
+        int m = Integer.parseInt(mark);
+        Item it = new Item(MyCourse.getCategory(), MyItem.getItemName(), m);
+        it.setMyMark(m);
+        marksList.add(it);
         try{
-            FileOutputStream fOut = openFileOutput("dataList.bin",MODE_PRIVATE);
+            FileOutputStream fOut = openFileOutput("marksList.bin",MODE_PRIVATE);
             ObjectOutputStream osw = new ObjectOutputStream(fOut);
-            osw.writeObject(courseList);
+            osw.writeObject(marksList);
             osw.flush();
             osw.close();
             Toast.makeText(getBaseContext(), "file Saved successfully", Toast.LENGTH_SHORT).show();
@@ -144,6 +185,35 @@ public class InputMarksActivity extends Activity {
             ArrayAdapter adapterSpinnerCourses = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strCourses);
             courseNames.setAdapter(adapterSpinnerCourses);
             courseNames.setOnItemSelectedListener(courseNamesClickListener);
+
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch(IOException ioe){
+            ioe.printStackTrace();
+        }
+        catch(ClassNotFoundException cnf){
+            cnf.printStackTrace();
+        }
+
+    }
+
+
+    /// this method populates the activity with phone file data for marks
+    /// or displays nothing and the user can add all as needed
+    public void loadMarksData(){
+        try {
+            FileInputStream fIn = openFileInput("marksList.bin");
+            ObjectInputStream isr = new ObjectInputStream(fIn);
+
+            marksList = (ArrayList<Item>)isr.readObject();
+            isr.close();
+            fIn.close();
+            Toast.makeText(getBaseContext(),(marksList.get(0)).getItemName(),Toast.LENGTH_LONG).show();
+            for (int i = 0; i < marksList.size(); i++) {
+                Item temp = marksList.get(i);
+            }
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
