@@ -8,6 +8,7 @@ public class Item implements Serializable {
     private String category = "";
     private double weight;
     private double myMark;
+    private double markOutOf;
 
     //constructor
     public Item(String category,String itemName , double weight){
@@ -49,6 +50,14 @@ public class Item implements Serializable {
 
     public double getWeight() {
         return weight;
+    }
+
+    public double getMarkOutOf() {
+        return markOutOf;
+    }
+
+    public void setMarkOutOf(double markOutOf) {
+        this.markOutOf = markOutOf;
     }
 
     public void setWeight(double weight) {
