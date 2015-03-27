@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-
+// does marculateactivity
 public class MarculateActivity extends ListActivity {
 
     Course myCourse;
