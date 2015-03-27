@@ -50,10 +50,12 @@ public class InputMarksActivity extends Activity {
     /// one course object
     // (it will be constantly updating if user changes the selection of the course in the spinner)
     Course MyCourse;
+    int editingCourse;
 
     /// one item object
     // (it will be constantly updating if user changes the selection of the course in the spinner)
     Item MyItem;
+    int editingItem;
 
     // a handle to the item edit text
     EditText mark;
@@ -82,7 +84,7 @@ public class InputMarksActivity extends Activity {
     private AdapterView.OnItemSelectedListener courseNamesClickListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+            editingCourse = position;
             strItems.clear(); // reset the spinner items
             itemList.clear(); // reset the array
             MyCourse = courseList.get(position);
@@ -105,6 +107,7 @@ public class InputMarksActivity extends Activity {
     private AdapterView.OnItemSelectedListener itemNamesClickListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            editingItem = position;
             MyItem = itemList.get(position);
         }
 
@@ -149,16 +152,16 @@ public class InputMarksActivity extends Activity {
     /// this method is triggered when user clicks Input Marks button THIS IS NOT IMPLEMENTED YET
     // the data is saved to a file on their phone
     public void save_data(View v){
-        String mk = mark.getText().toString();
-        int m = Integer.parseInt(mk);
-        Item it = new Item(MyCourse.getCourseName() + "      " + MyItem.getCategory(), MyItem.getItemName(), m);
-        it.setMyMark(m);
-        it.setWeight(MyItem.getWeight());
-        marksList.add(it);
+        MyItem.setMyMark(Double.parseDouble(mark.getText().toString()));
+        MyItem.setMarkOutOf(Double.parseDouble(markOutOf.getText().toString()));
+        itemList.set(editingItem, MyItem);
+        MyCourse.setItems(itemList);
+        courseList.set(editingCourse, MyCourse);
+
         try{
-            FileOutputStream fOut = openFileOutput("marksList.bin",MODE_PRIVATE);
+            FileOutputStream fOut = openFileOutput("dataList.bin",MODE_PRIVATE);
             ObjectOutputStream osw = new ObjectOutputStream(fOut);
-            osw.writeObject(marksList);
+            osw.writeObject(courseList);
             osw.flush();
             osw.close();
             Toast.makeText(getBaseContext(), "file Saved successfully", Toast.LENGTH_SHORT).show();
