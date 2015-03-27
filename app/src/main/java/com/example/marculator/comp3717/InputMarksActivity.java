@@ -56,7 +56,10 @@ public class InputMarksActivity extends Activity {
     Item MyItem;
 
     // a handle to the item edit text
-    EditText item;
+    EditText mark;
+
+    // a handle to the item edit text
+    EditText markOutOf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,8 @@ public class InputMarksActivity extends Activity {
         itemNames = (Spinner) findViewById(R.id.spnItems);
         loadCourseData();
         loadMarksData();
-        item = (EditText) findViewById(R.id.edtInputMark);
+        mark = (EditText) findViewById(R.id.edtInputMark);
+        markOutOf = (EditText) findViewById(R.id.edtInputMarkOutOf);
 
     }
 
@@ -80,6 +84,7 @@ public class InputMarksActivity extends Activity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             strItems.clear(); // reset the spinner items
+            itemList.clear(); // reset the array
             MyCourse = courseList.get(position);
             ArrayList<Item> temp = MyCourse.getItems();
             for(Item i : temp) {
@@ -144,10 +149,11 @@ public class InputMarksActivity extends Activity {
     /// this method is triggered when user clicks Input Marks button THIS IS NOT IMPLEMENTED YET
     // the data is saved to a file on their phone
     public void save_data(View v){
-        String mark = item.getText().toString();
-        int m = Integer.parseInt(mark);
-        Item it = new Item(MyCourse.getCategory(), MyItem.getItemName(), m);
+        String mk = mark.getText().toString();
+        int m = Integer.parseInt(mk);
+        Item it = new Item(MyCourse.getCourseName() + "      " + MyItem.getCategory(), MyItem.getItemName(), m);
         it.setMyMark(m);
+        it.setWeight(MyItem.getWeight());
         marksList.add(it);
         try{
             FileOutputStream fOut = openFileOutput("marksList.bin",MODE_PRIVATE);

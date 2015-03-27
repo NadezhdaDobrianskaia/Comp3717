@@ -78,7 +78,8 @@
     <string name="inputMarksScreenButton">Input Mark</string>
     <string name="label_item">Select Item:</string>
     <string name="label_course">Select Course:</string>
-    <string name="label_mark">Type in your mark</string>
+    <string name="label_mark">Type in your mark:</string>
+    <string name="label_mark_out_of">Type in what your mark is out of:</string>
 
     <!-- edit_course_detail -->
     <string name="title_activity_edit_course_details_screen">Edit a Course</string>

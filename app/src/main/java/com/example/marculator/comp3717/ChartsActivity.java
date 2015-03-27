@@ -73,7 +73,7 @@ public class ChartsActivity extends ActionBarActivity {
             Toast.makeText(getBaseContext(), (marksList.get(0)).getItemName(), Toast.LENGTH_LONG).show();
             for (int i = 0; i < marksList.size(); i++) {
                 Item temp = marksList.get(i);
-                allMarksData.add(""+ temp.getItemName() + "     " + temp.getMyMark());
+                allMarksData.add(temp.getCategory() + "       "+ temp.getItemName() + "     " + temp.getMyMark());
             }
 
             // This is the array adapter, it takes the context of the activity as a
