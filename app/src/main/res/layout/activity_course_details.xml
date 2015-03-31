@@ -1,13 +1,20 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:layout_gravity = "center_horizontal"
-    android:layout_weight="2"
-    android:layout_marginRight="30dp"
-    android:layout_marginLeft="30dp">
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<RelativeLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginRight="30dp"
+    android:layout_marginLeft="30dp"
+    android:isScrollContainer="true">
+
+    <TableLayout
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -36,16 +43,6 @@
         </TableRow>
 
         <TableRow>
-
-            <ListView
-                android:id = "@+id/android:list"
-                android:layout_span="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </TableRow>
-
-        <TableRow>
             <Button
                 android:text="@string/btn_new_item"
                 android:layout_width="wrap_content"
@@ -57,7 +54,7 @@
         </TableRow>
 
         <TableRow
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             >
             <TextView
                 android:id="@+id/category_label"
@@ -78,7 +75,7 @@
         </TableRow>
 
         <TableRow
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/item_name_label"
@@ -100,8 +97,8 @@
         </TableRow>
 
         <TableRow
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="1dp">
             <TextView
                 android:id="@+id/category_weight_label"
                 android:text="@string/category_weight_label"
@@ -133,13 +130,34 @@
                 android:onClick="addItem"/>
 
         </TableRow>
-        <TableRow
+        <TableRow>
+
+            <ListView
+                android:id = "@+id/android:list"
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </TableRow>
+
+        </TableLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom = "true"
+
+        >
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_marginTop="30dp">
             <Button
                 android:text="@string/btn_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight = "1"
+                android:layout_marginLeft="100dp"
                 android:onClick="detailsAdded" />
             <Button
                 android:text="@string/btn_cancel"
@@ -151,13 +169,13 @@
 
                 />
 
-        </TableRow>
+        </LinearLayout>
 
-    </TableLayout>
-
-
+    </RelativeLayout>
 
 
 
-</LinearLayout>
+
+
+</RelativeLayout>
 
