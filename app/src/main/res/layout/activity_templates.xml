@@ -4,20 +4,23 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.marculator.comp3717.TemplatesActivity">
+>
+
+    <TextView
+        android:text = "Course Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/CourseN"/>
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_above="@+id/bottom_control_bar"
+        android:layout_below="@id/CourseN"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/fullLayout">
 
-        <TextView
-            android:text = "Course Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
         <!--EditText box for entering the course-->
 
         <LinearLayout
@@ -38,6 +41,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/bottom_control_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom = "true">
@@ -68,7 +72,8 @@
                     android:text="@string/button_add_course"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="1dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="5dp"
                     android:layout_gravity="center_vertical"
                     android:onClick="add_course_details"/>
 
@@ -77,6 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_gravity="center_vertical"
                     android:onClick="delete_data"/>
 
@@ -85,6 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_gravity="center_vertical"
                     android:onClick="load_data" />
             </LinearLayout>
