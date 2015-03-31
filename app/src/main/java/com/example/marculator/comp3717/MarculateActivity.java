@@ -1,10 +1,12 @@
 package com.example.marculator.comp3717;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -60,6 +62,21 @@ public class MarculateActivity extends ListActivity {
         }
 
     }
+
+    /// this method is one of the methods
+    /// responsible for initiating a new activity (the coursedetailsactivity)
+    /// the intent is built and the populated course object is passed over in it
+    int editing = -1;
+    public void onListItemClick(ListView parent, View v, int position, long id){
+        editing = position;
+        Intent courseDetails = new Intent(this, MarkulateResult.class);
+        myCourse = courseList.get(position); // gets the course where the user clicked
+
+        courseDetails.putExtra("myCourse", myCourse);
+        startActivity(courseDetails);
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

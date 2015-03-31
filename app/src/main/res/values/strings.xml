@@ -71,7 +71,9 @@
     to the home page
     -->
 
+
     <!-- end View Details Screen -->
+
 
     <!-- button on input-marks-screen -->
     <string name="title_activity_input_marks_screen">Input Marks</string>
@@ -108,5 +110,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_marculator">MarculatorActivity</string>
     <string name="title_activity_charts">ChartsActivity</string>
+    <string name="title_activity_markulate_results">MarkulateResults</string>
+    <string name="title_activity_markulate">MarkulateActivity</string>
+    <string name="title_activity_markulate_result">MarkulateResult</string>
 
 </resources>

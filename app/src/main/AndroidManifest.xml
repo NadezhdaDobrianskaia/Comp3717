@@ -52,6 +52,12 @@
             android:name=".ChartsActivity"
             android:label="@string/title_activity_charts" >
         </activity>
+
+
+        <activity
+            android:name=".MarkulateResult"
+            android:label="@string/title_activity_markulate_result" >
+        </activity>
     </application>
 
 </manifest>
