@@ -134,24 +134,28 @@ public class CourseDetailsActivity extends ListActivity {
             //Toast.makeText(getBaseContext(), "else", Toast.LENGTH_LONG).show();
             myItem.setCategory(categoryString);
             myItem.setItemName(itemName.getText().toString());
-            myItem.setWeight(Double.parseDouble(weight.getText().toString()));
+            if(Double.parseDouble(weight.getText().toString())>0 && Double.parseDouble(weight.getText().toString())<100) {
+                myItem.setWeight(Double.parseDouble(weight.getText().toString()));
 
+                //Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show(); //testing
+                /// if the user wants to add, i.e. they have not made a choice by selecting from the list to edit
+                if (editing == -1) {
+                    if (myCourse.addCourseArrayList(myItem)) {
+                        itemsNames.add(myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());  //this is for the string list
+                        // Toast.makeText(getBaseContext(), "I am adding item", Toast.LENGTH_LONG).show();
+                    }
+                }
+                /// if the user wants to edit,
+                else {
+                    itemsNames.set(editing, myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
+                    myCourse.editCourseArrayList(editing, myItem);
+                    editing = -1;
+                    //Toast.makeText(getBaseContext(), "I am editing item", Toast.LENGTH_LONG).show();
 
-            //Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show(); //testing
-            /// if the user wants to add, i.e. they have not made a choice by selecting from the list to edit
-            if (editing == -1) {
-                if (myCourse.addCourseArrayList(myItem)) {
-                    itemsNames.add(myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());  //this is for the string list
-                   // Toast.makeText(getBaseContext(), "I am adding item", Toast.LENGTH_LONG).show();
                 }
             }
-            /// if the user wants to edit,
-            else {
-                itemsNames.set(editing, myItem.getCategory() + "    " + myItem.getItemName() + "    " + myItem.getWeight());
-                myCourse.editCourseArrayList(editing, myItem);
-                editing = -1;
-                //Toast.makeText(getBaseContext(), "I am editing item", Toast.LENGTH_LONG).show();
-
+            else{
+                Toast.makeText(getBaseContext(),"Please enter a weight between 0 and 100", Toast.LENGTH_LONG).show();
             }
         }
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsNames)); //this is for the string list
