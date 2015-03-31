@@ -24,7 +24,7 @@ public class ChartsActivity extends ActionBarActivity {
     List<String> allMarksData = new ArrayList<String>();
 
     /// all marks taken from phone data file
-    ArrayList<Item> marksList = new ArrayList<Item>();
+    ArrayList<Course> courseList = new ArrayList<Course>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +64,23 @@ public class ChartsActivity extends ActionBarActivity {
     /// or displays nothing and the user can add all as needed
     public void loadData(){
         try {
-            FileInputStream fIn = openFileInput("marksList.bin");
+            FileInputStream fIn = openFileInput("dataList.bin");
             ObjectInputStream isr = new ObjectInputStream(fIn);
 
-            marksList = (ArrayList<Item>)isr.readObject();
+            courseList = (ArrayList<Course>)isr.readObject();
             isr.close();
             fIn.close();
-            Toast.makeText(getBaseContext(), (marksList.get(0)).getItemName(), Toast.LENGTH_LONG).show();
-            for (int i = 0; i < marksList.size(); i++) {
-                Item temp = marksList.get(i);
-                allMarksData.add(temp.getCategory() + "       "+ temp.getItemName() + "     " + temp.getMyMark());
+            Toast.makeText(getBaseContext(), (courseList.get(0)).getCourseName(), Toast.LENGTH_LONG).show();
+            for (int i = 0; i < courseList.size(); i++) {
+                ArrayList<Item> tempItemList = new ArrayList<Item>();
+                tempItemList = courseList.get(i).getItems();
+                for( int j = 0; j < tempItemList.size(); j++) {
+                    double percent = tempItemList.get(j).getMyMark()/tempItemList.get(j).getMarkOutOf();
+                    allMarksData.add(courseList.get(i).getCourseName() + "   " +
+                            tempItemList.get(j).getCategory() + "   " +
+                            tempItemList.get(j).getItemName() + "   " +
+                            percent*100 + "%");
+                }
             }
 
             // This is the array adapter, it takes the context of the activity as a
