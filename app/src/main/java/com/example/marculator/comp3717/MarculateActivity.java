@@ -71,10 +71,8 @@ public class MarculateActivity extends ListActivity {
         editing = position;
         Intent courseDetails = new Intent(this, MarkulateResult.class);
         myCourse = courseList.get(position); // gets the course where the user clicked
-
         courseDetails.putExtra("myCourse", myCourse);
         startActivity(courseDetails);
-
     }
 
 

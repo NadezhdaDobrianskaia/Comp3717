@@ -36,6 +36,7 @@
         </TableRow>
 
         <TableRow>
+
             <ListView
                 android:id = "@+id/android:list"
                 android:layout_span="2"
@@ -43,6 +44,7 @@
                 android:layout_height="wrap_content"/>
 
         </TableRow>
+
         <TableRow>
             <Button
                 android:text="@string/btn_new_item"
