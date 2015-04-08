@@ -131,7 +131,7 @@ public class TemplatesActivity extends ListActivity {
             courseList = (ArrayList<Course>)isr.readObject();
             isr.close();
             fIn.close();
-            Toast.makeText(getBaseContext(),(courseList.get(0)).getCourseName(),Toast.LENGTH_LONG).show();
+            //Toast.makeText(getBaseContext(),(courseList.get(0)).getCourseName(),Toast.LENGTH_LONG).show();
             for (int i = 0; i < courseList.size(); i++) {
                 Course temp = courseList.get(i);
                 display.add(temp.getCourseName());

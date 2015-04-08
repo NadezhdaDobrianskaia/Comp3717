@@ -1,9 +1,9 @@
 package com.example.marculator.comp3717;
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,12 +20,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 //start of two items in a list
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import android.app.ListActivity;
-import android.os.Bundle;
-import android.widget.SimpleAdapter;
+//import java.util.ArrayList;
+//import java.util.HashMap;
+//import java.util.Map;
+//import android.app.ListActivity;
+//import android.os.Bundle;
+//import android.widget.SimpleAdapter;
 
 public class CourseDetailsActivity extends ListActivity {
 
@@ -189,7 +189,7 @@ public class CourseDetailsActivity extends ListActivity {
     int editing = -1;
     public void onListItemClick(ListView parent, View v, int position, long id){
         editing = position;
-        Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show();
+       // Toast.makeText(getBaseContext(), String.valueOf(editing),Toast.LENGTH_LONG).show();
         newItem(v);
         itemName.setText(items.get(position).getItemName());
         weight.setText(items.get(position).getWeightString());

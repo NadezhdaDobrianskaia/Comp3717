@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -70,7 +70,7 @@ public class ChartsActivity extends ActionBarActivity {
             courseList = (ArrayList<Course>)isr.readObject();
             isr.close();
             fIn.close();
-            Toast.makeText(getBaseContext(), (courseList.get(0)).getCourseName(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(getBaseContext(), (courseList.get(0)).getCourseName(), Toast.LENGTH_LONG).show();
             for (int i = 0; i < courseList.size(); i++) {
                 ArrayList<Item> tempItemList = new ArrayList<Item>();
                 tempItemList = courseList.get(i).getItems();

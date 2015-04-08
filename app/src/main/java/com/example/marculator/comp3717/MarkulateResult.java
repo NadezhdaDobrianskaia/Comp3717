@@ -2,7 +2,7 @@ package com.example.marculator.comp3717;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -64,7 +64,7 @@ public class MarkulateResult extends ListActivity {
             Item temp = items.get(i);
 
             if(Double.compare(temp.getMarkOutOf(),0.0)==0){
-                Toast.makeText(getBaseContext(),"if not a zero",Toast.LENGTH_LONG).show();
+               ;// Toast.makeText(getBaseContext(),"if not a zero",Toast.LENGTH_LONG).show();
 
             }
             else{
@@ -74,7 +74,7 @@ public class MarkulateResult extends ListActivity {
                 myMark = percent*weight/100;
                 //Toast.makeText(getBaseContext(),String.valueOf(temp.getMyMark() / temp.getMarkOutOf()*100),Toast.LENGTH_LONG).show();
                 sum = sum + myMark;
-                Toast.makeText(getBaseContext(),String.valueOf(sum),Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getBaseContext(),String.valueOf(sum),Toast.LENGTH_LONG).show();
             }
                 //Toast.makeText(getBaseContext(),String.valueOf(temp.getMyMark() / temp.getMarkOutOf()*100),Toast.LENGTH_LONG).show();
                // Toast.makeText(getBaseContext(),"Not a number",Toast.LENGTH_LONG).show();
