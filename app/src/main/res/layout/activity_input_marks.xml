@@ -42,7 +42,8 @@
         android:id="@+id/edtInputMark"
         android:layout_width="106dp"
         android:layout_height="wrap_content"
-        android:maxLength="3" />
+        android:maxLength="3"
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/txtLabelMarkOutOf"
@@ -55,7 +56,8 @@
         android:id="@+id/edtInputMarkOutOf"
         android:layout_width="106dp"
         android:layout_height="wrap_content"
-        android:maxLength="3" />
+        android:maxLength="3"
+        android:inputType="number"/>
 
     <Button
         android:layout_width="wrap_content"
